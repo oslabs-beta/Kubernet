@@ -13,7 +13,7 @@ module.exports = {
   },
 
   target: 'web',
-  node: process.env.NODE_ENV,
+  // node: process.env.NODE_ENV,
   devtool: 'eval-source-map',
 
   devServer: {

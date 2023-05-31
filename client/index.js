@@ -1,22 +1,7 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
 
-function RootLayout() {
-  return (
-    <div id='root-layout'>
-      <header>
-        <nav>
-          <NavLink to='/' className='signout'>
-            Home
-          </NavLink>
-        </nav>
-      </header>
-
-      <main>
-        <Outlet />
-      </main>
-    </div>
-  );
-}
-
-export default RootLayout;
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
+root.render(<App />);

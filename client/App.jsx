@@ -10,6 +10,7 @@ import {
 //imported pages
 import HomePage from './src/pages/home';
 import Dashboard from './src/pages/dashboard';
+import RootLayout from './src/components/RootLayout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(

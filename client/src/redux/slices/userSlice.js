@@ -3,7 +3,11 @@ import { CreateSlice } from '@reduxjs/toolkit';
 export const userSlice = CreateSlice({
   name: 'user',
 
-  initialState: {},
+  initialState: {
+    username: null,
+    kubernetesAPI: null,
+    grafana: {},
+  },
 
   reducers: {},
 });

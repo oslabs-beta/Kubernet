@@ -14,6 +14,7 @@
   "author": "Joseph, Paul, Praise, Jimmy",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "express": "^4.18.2",
     "mongoose": "^7.2.2",
     "react": "^18.2.0",

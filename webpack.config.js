@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -21,24 +20,23 @@ module.exports = {
     hot: true,
     historyApiFallback: true,
 
-    headers: { 'Access-Control-Allow-Origin': '*'},
+    headers: { 'Access-Control-Allow-Origin': '*' },
     proxy: {
-      "/static/**": {
-        target: "http://localhost:3000/",
+      '/static/**': {
+        target: 'http://localhost:5050/',
       },
-      "/login/**": {
-        target: "http://localhost:3000/",
+      '/login/**': {
+        target: 'http://localhost:5050/',
       },
-      "/main/**": {
-        target: "http://localhost:3000/",
+      '/main/**': {
+        target: 'http://localhost:5050/',
       },
     },
   },
 
   resolve: {
-    extensions: [".js", ".jsx", ".json"],
+    extensions: ['.js', '.jsx', '.json'],
   },
-
 
   plugins: [
     new MiniCssExtractPlugin(),
@@ -64,9 +62,8 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
-      
     ],
   },
 };

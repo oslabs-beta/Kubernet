@@ -15,7 +15,7 @@ serviceController.createServiceAccount =  async (req, res, next) => {
       })
     })
     const data = await response.json();
-    res.locals.serviceAccountObject = data
+    res.locals.serviceAccount = data
     return next();
   }
   catch(err) {
@@ -26,7 +26,7 @@ serviceController.createServiceAccount =  async (req, res, next) => {
 
 serviceController.createToken = async (req, res, next) => {
   try {
-    const response = await fetch('http://localhost:3000//api/serviceaccounts/:id/tokens', {
+    const response = await fetch(`http://localhost:3000//api/serviceaccounts/${res.locals.serviceAccount.id}/tokens`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ serviceController.createToken = async (req, res, next) => {
       })
     })
     const data = await response.json();
-    res.locals.tokenObject = data;
+    res.locals.token = data;
     return next()
   }
   catch(err) {

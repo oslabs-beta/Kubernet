@@ -9,8 +9,8 @@ app.use(express.json());
 
 app.use('/setup', serviceController.createServiceAccount, serviceController.createToken, (req, res) => {
   const response = {
-    serviceAccount: res.locals.serviceAccountObject,
-    token: res.locals.tokenObject,
+    serviceAccount: res.locals.serviceAccount,
+    token: res.locals.token,
     authorization: res.locals.authorization
   }
   res.status(200).send(response);

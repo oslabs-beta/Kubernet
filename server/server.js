@@ -3,8 +3,18 @@ const app = express();
 const path = require('path');
 const port = 3000;
 
-
+const serviceController = require('./controllers/serviceController')
 app.use(express.json());
+
+
+app.use('/setup', serviceController.createServiceAccount, serviceController.createToken, (req, res) => {
+  const response = {
+    serviceAccount: res.locals.serviceAccountObject,
+    token: res.locals.tokenObject,
+    authorization: res.locals.authorization
+  }
+  res.status(200).send(response);
+});
 
 app.use((req, res) => res.status(404).send('Page Not Found'));
 

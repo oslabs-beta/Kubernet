@@ -1,0 +1,23 @@
+apiVersion: v1
+data:
+  grafana.ini: "[analytics]\ncheck_for_updates = true\n[grafana_net]\nurl = https://grafana.net\n[log]\nmode
+    = console\n[paths]\ndata = /var/lib/grafana/\nlogs = /var/log/grafana\nplugins
+    = /var/lib/grafana/plugins\nprovisioning = /etc/grafana/provisioning\n[server]\ndomain
+    = ''\n[security] \nallow_embedding = true\n[auth.anonymous] \nenabled = true \norg_role
+    = Admin"
+kind: ConfigMap
+metadata:
+  annotations:
+    meta.helm.sh/release-name: prometheus
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2023-05-25T23:43:17Z"
+  labels:
+    app.kubernetes.io/instance: prometheus
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: grafana
+    app.kubernetes.io/version: 9.5.2
+    helm.sh/chart: grafana-6.56.5
+  name: prometheus-grafana
+  namespace: default
+  resourceVersion: "54656"
+  uid: 9b6c25d9-f1fc-4f3f-90ca-5a91eea243fa

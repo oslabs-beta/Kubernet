@@ -7,7 +7,7 @@ const port = 3000;
 const serviceController = require('./controllers/serviceController')
 app.use(express.json());
 
-const loginRouter = require('../routes/route.js')
+const loginRouter = require('./routes/route.js')
 
 app.use('login', loginRouter);
 

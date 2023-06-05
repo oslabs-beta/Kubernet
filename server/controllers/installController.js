@@ -92,6 +92,7 @@ installController.portForward = (req, res, next) => {
     { shell: true }
   );
 
+  //  Moves to next middleware if port forward was successful 
   port.stdout.on('data', (data) => {
     console.log('Success! Grafana can now be access on localhost:3000');
     return next();

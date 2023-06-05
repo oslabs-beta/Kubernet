@@ -1,20 +1,24 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const port = 3000;
+const port = 5050;
 
-const serviceController = require('./controllers/serviceController')
+const serviceController = require('./controllers/serviceController');
 app.use(express.json());
 
-
-app.use('/setup', serviceController.createServiceAccount, serviceController.createToken, (req, res) => {
-  const response = {
-    serviceAccount: res.locals.serviceAccount,
-    token: res.locals.token,
-    authorization: res.locals.authorization
+app.use(
+  '/setup',
+  serviceController.createServiceAccount,
+  serviceController.createToken,
+  (req, res) => {
+    const response = {
+      serviceAccount: res.locals.serviceAccount,
+      token: res.locals.token,
+      authorization: res.locals.authorization,
+    };
+    res.status(200).send(response);
   }
-  res.status(200).send(response);
-});
+);
 
 app.use((req, res) => res.status(404).send('Page Not Found'));
 

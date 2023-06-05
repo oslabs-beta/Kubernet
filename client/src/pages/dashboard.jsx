@@ -13,7 +13,7 @@ function Dashboard() {
           frameborder='0'
         ></iframe>
         <iframe
-          src='http://localhost:3000/d-solo/efa86fd1d0c121a26444b636a3f509a8/kubernetes-compute-resources-cluster?orgId=1&refresh=10s&from=1685626615866&to=1685630215866&panelId=4'
+          src='http://localhost:3000/d-solo/efa86fd1d0c121a26444b636a3f509a8/kubernetes-compute-resources-cluster?orgId=1&refresh=10s&from=1685975456858&to=1685979056858&panelId=1"'
           width='450'
           height='200'
           frameborder='0'

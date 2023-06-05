@@ -5,6 +5,8 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
 });
 
-const User = mongoose.model('User', userSchema);
+//Bcrypt Functionality:
 
+
+const User = mongoose.model('User', userSchema);
 module.exports = User;

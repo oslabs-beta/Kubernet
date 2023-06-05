@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const port = 3000;
+const port = 5050;
 
 
 const serviceController = require('./controllers/serviceController')
@@ -18,8 +18,7 @@ app.use('/setup', serviceController.createServiceAccount, serviceController.crea
     token: res.locals.token,
     authorization: res.locals.authorization
   }
-  res.status(200).send(response);
-});
+);
 
 app.use((req, res) => res.status(404).send('Page Not Found'));
 

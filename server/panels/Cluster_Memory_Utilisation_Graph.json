@@ -1,0 +1,100 @@
+{
+  "datasource": {
+    "uid": "$datasource",
+    "type": "prometheus"
+  },
+  "id": 4,
+  "interval": "1m",
+  "links": [],
+  "targets": [
+    {
+      "datasource": {
+        "uid": "$datasource"
+      },
+      "expr": "1 - sum(:node_memory_MemAvailable_bytes:sum{cluster=\"$cluster\"}) / sum(node_memory_MemTotal_bytes{job=\"node-exporter\",cluster=\"$cluster\"})",
+      "format": "time_series",
+      "instant": false,
+      "intervalFactor": 1,
+      "refId": "A",
+      "editorMode": "code",
+      "interval": "1",
+      "range": true
+    }
+  ],
+  "title": "Memory Utilisation",
+  "type": "timeseries",
+  "gridPos": {
+    "x": 12,
+    "y": 1,
+    "w": 12,
+    "h": 11
+  },
+  "fieldConfig": {
+    "defaults": {
+      "custom": {
+        "drawStyle": "line",
+        "lineInterpolation": "linear",
+        "barAlignment": 0,
+        "lineWidth": 1,
+        "fillOpacity": 0,
+        "gradientMode": "none",
+        "spanNulls": false,
+        "showPoints": "auto",
+        "pointSize": 5,
+        "stacking": {
+          "mode": "none",
+          "group": "A"
+        },
+        "axisPlacement": "auto",
+        "axisLabel": "",
+        "axisColorMode": "text",
+        "scaleDistribution": {
+          "type": "linear"
+        },
+        "axisCenteredZero": false,
+        "hideFrom": {
+          "tooltip": false,
+          "viz": false,
+          "legend": false
+        },
+        "thresholdsStyle": {
+          "mode": "off"
+        }
+      },
+      "color": {
+        "mode": "palette-classic"
+      },
+      "mappings": [],
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "value": null,
+            "color": "green"
+          },
+          {
+            "value": 80,
+            "color": "red"
+          }
+        ]
+      },
+      "unit": "percentunit"
+    },
+    "overrides": []
+  },
+  "options": {
+    "tooltip": {
+      "mode": "single",
+      "sort": "none"
+    },
+    "legend": {
+      "showLegend": false,
+      "displayMode": "list",
+      "placement": "bottom",
+      "calcs": []
+    }
+  },
+  "pluginVersion": "9.5.2",
+  "timeFrom": null,
+  "timeShift": null
+}

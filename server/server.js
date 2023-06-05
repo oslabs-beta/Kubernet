@@ -18,7 +18,7 @@ app.use('/setup', serviceController.createServiceAccount, serviceController.crea
     token: res.locals.token,
     authorization: res.locals.authorization
   }
-);
+});
 
 app.use((req, res) => res.status(404).send('Page Not Found'));
 

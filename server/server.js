@@ -3,8 +3,13 @@ const app = express();
 const path = require('path');
 const port = 3000;
 
+
 const serviceController = require('./controllers/serviceController')
 app.use(express.json());
+
+const loginRouter = require('../routes/route.js')
+
+app.use('login', loginRouter);
 
 
 app.use('/setup', serviceController.createServiceAccount, serviceController.createToken, (req, res) => {

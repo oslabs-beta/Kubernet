@@ -7,7 +7,6 @@ const installController = {};
  * @param {*} req
  * @param {*} res
  * @param {*} next
- * @returns
  */
 
 installController.promInstall = (req, res, next) => {
@@ -24,10 +23,56 @@ installController.promInstall = (req, res, next) => {
 
   //  Installs helm chart with the label prometheusOSP
   spawnSync(
-    'helm install prometheusOSP prometheus-community/kube-prometheus-stack',
+    'helm install prometheus prometheus-community/kube-prometheus-stack',
     { stdio: 'inherit', shell: true }
   );
 
+  return next();
+};
+
+/**
+ * Embed grafana
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+
+installController.grafEmbed = (req, res, next) => {
+  console.log('Embedding grafana');
+
+  //  Executing kubectl get pods
+  const child = spawnSync('kubectl', ['get', 'pods'], { encoding: 'utf-8' });
+
+  //  Error handler
+  if (child.stderr) {
+    console.error(`kubectl get pods error: ${child.stderr}`);
+    return next({
+      log: 'Express error handler caught! grafEmbed middleware error',
+      status: 500,
+      message: {
+        err: 'An error occurred while attempting to get pods',
+      },
+    });
+  }
+  //  Assigning the console statement to a constant
+  const output = child.stdout.split('\n');
+
+  //  Searching for the prometheus-grafana pod
+  let pod;
+  output.forEach((line) => {
+    if (line.includes('prometheus-grafana')) {
+      [pod] = line.split(' ');
+    }
+  });
+
+  //  Applying custom yaml file
+  spawnSync('kubectl apply -f prometheus-grafana.yaml', {
+    stdio: 'inherit',
+    shell: true,
+  });
+
+  //  Delete old prometheus-grafana pod
+  spawnSync(`kubectl delete pod ${pod}`, { stdio: 'inherit', shell: true });
   return next();
 };
 

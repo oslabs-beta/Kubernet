@@ -4,5 +4,9 @@ const loginRouter = express.Router();
 const userController = require('../controllers/userController')
 
 
-loginRouter.post('/signUp', userController.createsignUUser, (req,res))
-loginRouter.post('/loginUser', userController.verifyUser, (req,res))
+loginRouter.post('/signUp', userController.createUUser, (req,res) => {
+  return res.sendStatus(200);
+})
+loginRouter.post('/loginUser', userController.verifyUser, (req,res) => {
+  return res.sendStatus(200);
+})

@@ -1,3 +1,5 @@
+@import '_colors';
+
 .container {
   display: flex;
   flex-direction: column;
@@ -16,4 +18,12 @@
   align-items: center;
   flex: 2;
   justify-content: space-around;
+}
+
+iframe {
+  margin: 10px;
+  border: 3px solid $color1;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: $color3;
 }

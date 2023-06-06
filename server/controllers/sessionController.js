@@ -3,7 +3,7 @@ const sessionController = {}
 
 sessionController.startSession = async (req, res, next) => {
   try { 
-    console.log('In SessionController.startSession')
+    // console.log('In SessionController.startSession')
     await Session.findOneAndUpdate(
       { cookieId: res.locals.user},
       { createdAt: Date.now()},

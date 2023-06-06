@@ -25,7 +25,7 @@ function HomePage() {
       const username = e.target[0].value;
       const password = e.target[1].value;
 
-      const response = await fetch('/login', {
+      const response = await fetch('http://localhost:5050/signup', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',

@@ -1,0 +1,67 @@
+{
+  "type": "stat",
+  "title": "CPU Utilisation",
+  "gridPos": {
+    "x": 12,
+    "y": 8,
+    "w": 12,
+    "h": 8
+  },
+  "datasource": {
+    "uid": "prometheus",
+    "type": "prometheus"
+  },
+  "id": 156,
+  "targets": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "refId": "A",
+      "editorMode": "code",
+      "expr": "cluster:node_cpu:ratio_rate5m",
+      "legendFormat": "__auto",
+      "range": true
+    }
+  ],
+  "options": {
+    "reduceOptions": {
+      "values": false,
+      "calcs": [
+        "lastNotNull"
+      ],
+      "fields": ""
+    },
+    "orientation": "auto",
+    "textMode": "value",
+    "colorMode": "value",
+    "graphMode": "none",
+    "justifyMode": "center"
+  },
+  "fieldConfig": {
+    "defaults": {
+      "mappings": [],
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "value": null,
+            "color": "green"
+          },
+          {
+            "value": 80,
+            "color": "red"
+          }
+        ]
+      },
+      "color": {
+        "mode": "fixed",
+        "fixedColor": "text"
+      },
+      "unit": "percentunit"
+    },
+    "overrides": []
+  },
+  "pluginVersion": "9.5.2"
+}

@@ -7,14 +7,14 @@
     "defaults": {
       "custom": {
         "drawStyle": "line",
-        "lineInterpolation": "linear",
+        "lineInterpolation": "stepAfter",
         "barAlignment": 0,
         "lineWidth": 1,
         "fillOpacity": 28,
         "gradientMode": "scheme",
         "spanNulls": false,
         "showPoints": "never",
-        "pointSize": 5,
+        "pointSize": 1,
         "stacking": {
           "mode": "none",
           "group": "A"
@@ -33,10 +33,14 @@
         },
         "thresholdsStyle": {
           "mode": "off"
+        },
+        "lineStyle": {
+          "fill": "solid"
         }
       },
       "color": {
-        "mode": "continuous-YlRd"
+        "mode": "continuous-YlRd",
+        "seriesBy": "last"
       },
       "mappings": [],
       "thresholds": {
@@ -47,7 +51,7 @@
             "value": null
           },
           {
-            "color": "red",
+            "color": "#EAB839",
             "value": 80
           }
         ]
@@ -61,9 +65,9 @@
     "h": 8,
     "w": 12,
     "x": 0,
-    "y": 0
+    "y": 24
   },
-  "id": 2,
+  "id": 155,
   "options": {
     "tooltip": {
       "mode": "single",
@@ -76,6 +80,7 @@
       "calcs": []
     }
   },
+  "pluginVersion": "9.5.2",
   "targets": [
     {
       "datasource": {
@@ -83,12 +88,14 @@
         "uid": "prometheus"
       },
       "editorMode": "code",
-      "expr": "1 - sum(:node_memory_MemAvailable_bytes:sum) / sum(node_memory_MemTotal_bytes)",
+      "exemplar": true,
+      "expr": "cluster:node_cpu:ratio_rate5m",
+      "interval": "1",
       "legendFormat": "__auto",
       "range": true,
       "refId": "A"
     }
   ],
-  "title": "Memory Utilisation",
+  "title": "CPU Utilisation",
   "type": "timeseries"
 }

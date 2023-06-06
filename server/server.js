@@ -23,12 +23,11 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 app.use('/login', loginRouter);
 
 app.use('/create', 
-  grafanaController.cpuUtil,
-  grafanaController.cpuUtilGraph,
-  grafanaController.memUtil,
-  grafanaController.memUtilGraph, 
+  grafanaController.getPanels,
   (req, res) => {res.status(200).json(res.locals.URLS);
 });
+
+
 app.use(
   '/install',
   installController.promInstall,

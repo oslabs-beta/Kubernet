@@ -22,18 +22,23 @@ function HomePage() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      // const response = await fetch('/login', {
-      //   method: 'post',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({ username, password }),
-      // });
+      const username = e.target[0].value;
+      const password = e.target[1].value;
 
-      // if (response.ok) {
-      console.log(username, password);
-      navigate('/dashboard');
-      //   }
+      const response = await fetch('/login', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log(username, password);
+        navigate('/dashboard', { state: { data } });
+      }
     } catch (err) {
       console.log(err);
     }

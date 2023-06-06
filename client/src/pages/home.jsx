@@ -17,18 +17,21 @@ function HomePage() {
     try {
       const username = e.target[0].value;
       const password = e.target[1].value;
-      // const response = await fetch('/login', {
-      //   method: 'post',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({ username, password }),
-      // });
 
-      // if (response.ok) {
-      // navigate('/dashboard');
+      const response = await fetch('/login', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
 
-      //   }
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log(username, password);
+        navigate('/dashboard', { state: { data } });
+      }
     } catch (err) {
       console.log(err);
     }
@@ -36,22 +39,6 @@ function HomePage() {
 
   function loadingPretend() {
     setLoading((val) => !val);
-  }
-
-  async function installAll() {
-    try {
-      setLoading(true);
-      const response = await fetch('http://localhost:5050/install');
-
-      if (!response.ok) {
-        console.log('Error installing');
-      }
-      setLoading(false);
-      const json = await response.json();
-      console.log(json);
-    } catch (err) {
-      console.log(err);
-    }
   }
 
   return (

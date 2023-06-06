@@ -28,6 +28,9 @@ module.exports = {
       '/login/**': {
         target: 'http://localhost:5050/',
       },
+      '/signup/**': {
+        target: 'http://localhost:5050/',
+      },
       '/main/**': {
         target: 'http://localhost:5050/',
       },

@@ -1,31 +1,43 @@
 {
-  "datasource": {
-    "uid": "$datasource"
+  "type": "stat",
+  "title": "CPU Utilisation",
+  "gridPos": {
+    "x": 12,
+    "y": 8,
+    "w": 12,
+    "h": 8
   },
-  "id": 1,
-  "interval": "1m",
-  "links": [],
+  "datasource": {
+    "uid": "prometheus",
+    "type": "prometheus"
+  },
+  "id": 4,
   "targets": [
     {
-      "expr": "cluster:node_cpu:ratio_rate5m{cluster=\"$cluster\"}",
-      "format": "time_series",
-      "instant": true,
-      "intervalFactor": 2,
-      "refId": "A",
       "datasource": {
-        "uid": "$datasource"
-      }
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "refId": "A",
+      "editorMode": "code",
+      "expr": "cluster:node_cpu:ratio_rate5m",
+      "legendFormat": "__auto",
+      "range": true
     }
   ],
-  "timeFrom": null,
-  "timeShift": null,
-  "title": "CPU Utilisation",
-  "type": "stat",
-  "gridPos": {
-    "x": 0,
-    "y": 1,
-    "w": 4,
-    "h": 3
+  "options": {
+    "reduceOptions": {
+      "values": false,
+      "calcs": [
+        "lastNotNull"
+      ],
+      "fields": ""
+    },
+    "orientation": "auto",
+    "textMode": "value",
+    "colorMode": "value",
+    "graphMode": "none",
+    "justifyMode": "center"
   },
   "fieldConfig": {
     "defaults": {
@@ -43,26 +55,13 @@
           }
         ]
       },
-      "unit": "percentunit",
       "color": {
-        "mode": "thresholds"
-      }
+        "mode": "fixed",
+        "fixedColor": "text"
+      },
+      "unit": "percentunit"
     },
     "overrides": []
-  },
-  "options": {
-    "reduceOptions": {
-      "values": false,
-      "calcs": [
-        "mean"
-      ],
-      "fields": ""
-    },
-    "orientation": "horizontal",
-    "textMode": "auto",
-    "colorMode": "none",
-    "graphMode": "none",
-    "justifyMode": "auto"
   },
   "pluginVersion": "9.5.2"
 }

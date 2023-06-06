@@ -1,47 +1,20 @@
 {
   "datasource": {
-    "uid": "$datasource",
-    "type": "prometheus"
-  },
-  "id": 35,
-  "interval": "1m",
-  "links": [],
-  "targets": [
-    {
-      "datasource": {
-        "uid": "$datasource"
-      },
-      "expr": "cluster:node_cpu:ratio_rate5m{cluster=\"$cluster\"}",
-      "format": "time_series",
-      "instant": true,
-      "intervalFactor": 1,
-      "refId": "A",
-      "editorMode": "code",
-      "interval": "1",
-      "range": true,
-      "exemplar": true
-    }
-  ],
-  "title": "CPU Utilisation",
-  "type": "timeseries",
-  "gridPos": {
-    "x": 8,
-    "y": 1,
-    "w": 16,
-    "h": 7
+    "type": "prometheus",
+    "uid": "prometheus"
   },
   "fieldConfig": {
     "defaults": {
       "custom": {
         "drawStyle": "line",
-        "lineInterpolation": "linear",
+        "lineInterpolation": "stepAfter",
         "barAlignment": 0,
         "lineWidth": 1,
-        "fillOpacity": 0,
-        "gradientMode": "none",
+        "fillOpacity": 28,
+        "gradientMode": "scheme",
         "spanNulls": false,
-        "showPoints": "auto",
-        "pointSize": 5,
+        "showPoints": "never",
+        "pointSize": 1,
         "stacking": {
           "mode": "none",
           "group": "A"
@@ -60,29 +33,41 @@
         },
         "thresholdsStyle": {
           "mode": "off"
+        },
+        "lineStyle": {
+          "fill": "solid"
         }
       },
       "color": {
-        "mode": "palette-classic"
+        "mode": "continuous-YlRd",
+        "seriesBy": "last"
       },
       "mappings": [],
       "thresholds": {
         "mode": "absolute",
         "steps": [
           {
-            "value": null,
-            "color": "green"
+            "color": "green",
+            "value": null
           },
           {
-            "value": 80,
-            "color": "red"
+            "color": "#EAB839",
+            "value": 80
           }
         ]
       },
+      "decimals": 1,
       "unit": "percentunit"
     },
     "overrides": []
   },
+  "gridPos": {
+    "h": 8,
+    "w": 12,
+    "x": 0,
+    "y": 24
+  },
+  "id": 1,
   "options": {
     "tooltip": {
       "mode": "single",
@@ -96,6 +81,21 @@
     }
   },
   "pluginVersion": "9.5.2",
-  "timeFrom": null,
-  "timeShift": null
+  "targets": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "editorMode": "code",
+      "exemplar": true,
+      "expr": "cluster:node_cpu:ratio_rate5m",
+      "interval": "1",
+      "legendFormat": "__auto",
+      "range": true,
+      "refId": "A"
+    }
+  ],
+  "title": "CPU Utilisation",
+  "type": "timeseries"
 }

@@ -3,22 +3,16 @@ const app = express();
 const path = require('path');
 const port = 5050;
 
-const serviceController = require('./controllers/serviceController');
+const grafanaController = require('./controllers/grafanaOrgController');
 app.use(express.json());
 
-app.use(
-  '/setup',
-  serviceController.createServiceAccount,
-  serviceController.createToken,
-  (req, res) => {
-    const response = {
-      serviceAccount: res.locals.serviceAccount,
-      token: res.locals.token,
-      authorization: res.locals.authorization,
-    };
-    res.status(200).send(response);
-  }
-);
+app.use('/create', 
+  grafanaController.cpuUtil,
+  grafanaController.cpuUtilGraph,
+  grafanaController.memUtil,
+  grafanaController.memUtilGraph, 
+  (req, res) => {res.status(200).json(res.locals.URLS);
+});
 
 app.use((req, res) => res.status(404).send('Page Not Found'));
 

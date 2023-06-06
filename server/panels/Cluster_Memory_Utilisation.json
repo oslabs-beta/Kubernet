@@ -1,31 +1,7 @@
 {
   "datasource": {
-    "uid": "$datasource"
-  },
-  "id": 4,
-  "interval": "1m",
-  "links": [],
-  "targets": [
-    {
-      "expr": "1 - sum(:node_memory_MemAvailable_bytes:sum{cluster=\"$cluster\"}) / sum(node_memory_MemTotal_bytes{job=\"node-exporter\",cluster=\"$cluster\"})",
-      "format": "time_series",
-      "instant": true,
-      "intervalFactor": 2,
-      "refId": "A",
-      "datasource": {
-        "uid": "$datasource"
-      }
-    }
-  ],
-  "timeFrom": null,
-  "timeShift": null,
-  "title": "Memory Utilisation",
-  "type": "stat",
-  "gridPos": {
-    "x": 12,
-    "y": 1,
-    "w": 4,
-    "h": 3
+    "type": "prometheus",
+    "uid": "prometheus"
   },
   "fieldConfig": {
     "defaults": {
@@ -34,35 +10,58 @@
         "mode": "absolute",
         "steps": [
           {
-            "value": null,
-            "color": "green"
+            "color": "green",
+            "value": null
           },
           {
-            "value": 80,
-            "color": "red"
+            "color": "red",
+            "value": 80
           }
         ]
       },
-      "unit": "percentunit",
       "color": {
-        "mode": "thresholds"
-      }
+        "fixedColor": "text",
+        "mode": "fixed"
+      },
+      "unit": "percentunit"
     },
     "overrides": []
   },
+  "gridPos": {
+    "h": 8,
+    "w": 12,
+    "x": 0,
+    "y": 0
+  },
+  "id": 6,
   "options": {
     "reduceOptions": {
       "values": false,
       "calcs": [
-        "mean"
+        "lastNotNull"
       ],
       "fields": ""
     },
-    "orientation": "horizontal",
+    "orientation": "auto",
     "textMode": "auto",
-    "colorMode": "none",
+    "colorMode": "value",
     "graphMode": "none",
     "justifyMode": "auto"
   },
-  "pluginVersion": "9.5.2"
+  "pluginVersion": "9.5.2",
+  "targets": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "editorMode": "code",
+      "expr": "1 - sum(:node_memory_MemAvailable_bytes:sum) / sum(node_memory_MemTotal_bytes)",
+      "legendFormat": "__auto",
+      "range": true,
+      "refId": "A"
+    }
+  ],
+  "title": "Memory Utilisation",
+  "type": "stat"
 }

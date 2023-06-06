@@ -4,6 +4,7 @@ const path = require('path');
 const port = 5050;
 
 const serviceController = require('./controllers/serviceController');
+const installController = require('./controllers/installController');
 app.use(express.json());
 
 app.use(
@@ -17,6 +18,16 @@ app.use(
       authorization: res.locals.authorization,
     };
     res.status(200).send(response);
+  }
+);
+
+app.use(
+  '/install',
+  installController.promInstall,
+  installController.grafEmbed,
+  installController.portForward,
+  (req, res) => {
+    return res.status(200)
   }
 );
 

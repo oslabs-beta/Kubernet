@@ -28,7 +28,13 @@ module.exports = {
       '/login/**': {
         target: 'http://localhost:5050/',
       },
+      '/signup/**': {
+        target: 'http://localhost:5050/',
+      },
       '/main/**': {
+        target: 'http://localhost:5050/',
+      },
+      '/install/**': {
         target: 'http://localhost:5050/',
       },
     },
@@ -63,6 +69,14 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         exclude: /node_modules/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       },
     ],
   },

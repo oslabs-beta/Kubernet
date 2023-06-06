@@ -4,10 +4,14 @@ const signUpRouter = express.Router();
 const userController = require('../controllers/userController');
 const cookieController = require('../controllers/cookieController');
 const sessionController = require('../controllers/sessionController');
+const grafanaController = require('../controllers/grafanaController');
 
 
-signUpRouter.post('/signUp', userController.createUser, sessionController.startSession, cookieController.setSSIDCookie, (req, res, next) => {
-  res.sendStatus(200)
-});
+signUpRouter.post('/',
+  grafanaController.getPanels,
+  userController.createUser,
+  sessionController.startSession,
+  cookieController.setSSIDCookie, 
+(req, res, next) => { res.status(201).json(res.locals.URLS)});
 
 module.exports = signUpRouter;

@@ -5,10 +5,15 @@ const userController = require('../controllers/userController');
 const cookieController = require('../controllers/cookieController');
 const sessionController = require('../controllers/sessionController');
 
-
-
-loginRouter.post('/loginUser', userController.verifyUser, sessionController.startSession, cookieController.setSSIDCookie, (req,res) => {
-  return res.sendStatus(200);
-})
+loginRouter.post(
+  '/',
+  userController.verifyUser,
+  userController.getUrls,
+  sessionController.startSession,
+  cookieController.setSSIDCookie,
+  (req, res) => {
+    return res.status(201).json(res.locals.URLS);
+  }
+);
 
 module.exports = loginRouter;

@@ -4,6 +4,7 @@ const mongoURI = process.env.MONGO_URI;
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  urls: { type: Object, required: true },
 });
 
 //Bcrypt Functionality:

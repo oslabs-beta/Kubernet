@@ -7,7 +7,7 @@ function Dashboard() {
     <>
       <div className={styles.numericMetrics}>
         <iframe
-          src='https://www.google.com/webhp?igu=1'
+          src='http://localhost:3000/d-solo/e6520c52-74fd-46f0-b1d6-8f58dff9692d/new-dashboard?orgId=1&panelId=1&refresh=15s'
           width='450'
           height='200'
           frameborder='0'

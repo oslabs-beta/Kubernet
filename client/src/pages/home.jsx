@@ -39,10 +39,6 @@ function HomePage() {
     }
   };
 
-  function changePage() {
-    navigate('/dashboard');
-  }
-
   return (
     <div className={styles.container}>
       <form onSubmit={handleLogin} className={styles.loginBox}>

@@ -15,11 +15,11 @@ function HomePage() {
   const passwordChangeEvent = (event) => {
     setPassword(event.target.value);
   };
-  const navigateSignup = function () {
-    navigate('/signup');
+  const navigateLogin = function () {
+    navigate('/');
   };
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     try {
       // const response = await fetch('/login', {
@@ -39,14 +39,10 @@ function HomePage() {
     }
   };
 
-  function changePage() {
-    navigate('/dashboard');
-  }
-
   return (
     <div className={styles.container}>
-      <form onSubmit={handleLogin} className={styles.loginBox}>
-        <h2 className={styles.header}>Welcome Back</h2>
+      <form onSubmit={handleSignup} className={styles.loginBox}>
+        <h2 className={styles.header}>Enter to Sign up</h2>
 
         <input
           type='text'
@@ -63,12 +59,12 @@ function HomePage() {
           onChange={passwordChangeEvent}
           className={styles.input}
         ></input>
-        <button onClick={navigateSignup} className={styles.secondaryButton}>
-          Sign Up
+        <button onClick={navigateLogin} className={styles.secondaryButton}>
+          Have an Account?
         </button>
         <input
           type='submit'
-          value='Login'
+          value='Sign Up!'
           className={styles.primaryButton}
         ></input>
       </form>

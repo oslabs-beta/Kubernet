@@ -2,9 +2,25 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const port = 5050;
+const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser')
 
-const grafanaController = require('./controllers/grafanaOrgController');
+require('dotenv').config();
+
+const installController = require('./controllers/installController');
+
+const grafanaController = require('./controllers/grafanaController');
+
 app.use(express.json());
+app.use(cookieParser());
+
+const loginRouter = require('./routes/route')
+
+const mongoURI = process.env.MONGO_URI;
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+// redirect to routes
+app.use('/login', loginRouter);
 
 app.use('/create', 
   grafanaController.cpuUtil,
@@ -13,6 +29,15 @@ app.use('/create',
   grafanaController.memUtilGraph, 
   (req, res) => {res.status(200).json(res.locals.URLS);
 });
+app.use(
+  '/install',
+  installController.promInstall,
+  installController.grafEmbed,
+  installController.portForward,
+  (req, res) => {
+    return res.status(200)
+  }
+);
 
 app.use((req, res) => res.status(404).send('Page Not Found'));
 

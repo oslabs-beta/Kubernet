@@ -7,7 +7,7 @@ function RootLayout() {
     <div className={styles.container}>
       <header className={styles.header}>
         <nav>
-          <NavLink to='/' className='signout'>
+          <NavLink to='/' className={styles.link}>
             Home
           </NavLink>
         </nav>

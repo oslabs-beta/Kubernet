@@ -7,10 +7,10 @@ const cookieParser = require('cookie-parser')
 
 require('dotenv').config();
 
+const installController = require('./controllers/installController');
 
 app.use(express.json());
 app.use(cookieParser());
-
 
 const loginRouter = require('./routes/route')
 
@@ -20,6 +20,15 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 // redirect to routes
 app.use('/login', loginRouter);
 
+app.use(
+  '/install',
+  installController.promInstall,
+  installController.grafEmbed,
+  installController.portForward,
+  (req, res) => {
+    return res.status(200)
+  }
+);
 
 app.use((req, res) => res.status(404).send('Page Not Found'));
 

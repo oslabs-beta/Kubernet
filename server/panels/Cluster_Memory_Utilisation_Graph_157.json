@@ -1,33 +1,7 @@
 {
   "datasource": {
-    "uid": "$datasource",
-    "type": "prometheus"
-  },
-  "id": 4,
-  "interval": "1m",
-  "links": [],
-  "targets": [
-    {
-      "datasource": {
-        "uid": "$datasource"
-      },
-      "expr": "1 - sum(:node_memory_MemAvailable_bytes:sum{cluster=\"$cluster\"}) / sum(node_memory_MemTotal_bytes{job=\"node-exporter\",cluster=\"$cluster\"})",
-      "format": "time_series",
-      "instant": false,
-      "intervalFactor": 1,
-      "refId": "A",
-      "editorMode": "code",
-      "interval": "1",
-      "range": true
-    }
-  ],
-  "title": "Memory Utilisation",
-  "type": "timeseries",
-  "gridPos": {
-    "x": 12,
-    "y": 1,
-    "w": 12,
-    "h": 11
+    "type": "prometheus",
+    "uid": "prometheus"
   },
   "fieldConfig": {
     "defaults": {
@@ -36,10 +10,10 @@
         "lineInterpolation": "linear",
         "barAlignment": 0,
         "lineWidth": 1,
-        "fillOpacity": 0,
-        "gradientMode": "none",
+        "fillOpacity": 28,
+        "gradientMode": "scheme",
         "spanNulls": false,
-        "showPoints": "auto",
+        "showPoints": "never",
         "pointSize": 5,
         "stacking": {
           "mode": "none",
@@ -62,26 +36,34 @@
         }
       },
       "color": {
-        "mode": "palette-classic"
+        "mode": "continuous-YlRd"
       },
       "mappings": [],
       "thresholds": {
         "mode": "absolute",
         "steps": [
           {
-            "value": null,
-            "color": "green"
+            "color": "green",
+            "value": null
           },
           {
-            "value": 80,
-            "color": "red"
+            "color": "red",
+            "value": 80
           }
         ]
       },
+      "decimals": 1,
       "unit": "percentunit"
     },
     "overrides": []
   },
+  "gridPos": {
+    "h": 8,
+    "w": 12,
+    "x": 0,
+    "y": 0
+  },
+  "id": 157,
   "options": {
     "tooltip": {
       "mode": "single",
@@ -94,7 +76,19 @@
       "calcs": []
     }
   },
-  "pluginVersion": "9.5.2",
-  "timeFrom": null,
-  "timeShift": null
+  "targets": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "editorMode": "code",
+      "expr": "1 - sum(:node_memory_MemAvailable_bytes:sum) / sum(node_memory_MemTotal_bytes)",
+      "legendFormat": "__auto",
+      "range": true,
+      "refId": "A"
+    }
+  ],
+  "title": "Memory Utilisation",
+  "type": "timeseries"
 }

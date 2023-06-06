@@ -9,6 +9,8 @@ require('dotenv').config();
 
 const installController = require('./controllers/installController');
 
+const grafanaController = require('./controllers/grafanaController');
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -19,6 +21,12 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // redirect to routes
 app.use('/login', loginRouter);
+
+app.use('/create', 
+  grafanaController.getPanels,
+  (req, res) => {res.status(200).json(res.locals.URLS);
+});
+
 
 app.use(
   '/install',

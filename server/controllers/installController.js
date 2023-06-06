@@ -65,6 +65,12 @@ installController.grafEmbed = (req, res, next) => {
     }
   });
 
+  // Delete previous config map
+  spawnSync('kubectl delete configmap prometheus-grafana', {
+    stdio: 'inherit',
+    shell: true,
+  });
+
   //  Applying custom yaml file
   spawnSync('kubectl apply -f prometheus-grafana.yaml', {
     stdio: 'inherit',

@@ -2,24 +2,23 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const port = 5050;
+const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser')
 
-const serviceController = require('./controllers/serviceController');
+require('dotenv').config();
+
 const installController = require('./controllers/installController');
-app.use(express.json());
 
-app.use(
-  '/setup',
-  serviceController.createServiceAccount,
-  serviceController.createToken,
-  (req, res) => {
-    const response = {
-      serviceAccount: res.locals.serviceAccount,
-      token: res.locals.token,
-      authorization: res.locals.authorization,
-    };
-    res.status(200).send(response);
-  }
-);
+app.use(express.json());
+app.use(cookieParser());
+
+const loginRouter = require('./routes/route')
+
+const mongoURI = process.env.MONGO_URI;
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+// redirect to routes
+app.use('/login', loginRouter);
 
 app.use(
   '/install',

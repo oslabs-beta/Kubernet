@@ -2,23 +2,24 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const port = 5050;
+const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser')
+
+require('dotenv').config();
 
 
-const serviceController = require('./controllers/serviceController')
 app.use(express.json());
-
-const loginRouter = require('./routes/route.js')
-
-app.use('login', loginRouter);
+app.use(cookieParser());
 
 
-app.use('/setup', serviceController.createServiceAccount, serviceController.createToken, (req, res) => {
-  const response = {
-    serviceAccount: res.locals.serviceAccount,
-    token: res.locals.token,
-    authorization: res.locals.authorization
-  }
-});
+const loginRouter = require('./routes/route')
+
+const mongoURI = process.env.MONGO_URI;
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+// redirect to routes
+app.use('/login', loginRouter);
+
 
 app.use((req, res) => res.status(404).send('Page Not Found'));
 

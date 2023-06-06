@@ -10,12 +10,14 @@ import {
 //imported pages
 import HomePage from './src/pages/home';
 import Dashboard from './src/pages/dashboard';
+import Signup from './src/pages/signup';
 import RootLayout from './src/components/RootLayout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<RootLayout />}>
       <Route path='/' element={<HomePage />} />
+      <Route path='/signup' element={<Signup />} />
       <Route path='/dashboard' element={<Dashboard />} />
     </Route>
   )

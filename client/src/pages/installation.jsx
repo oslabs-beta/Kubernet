@@ -4,7 +4,6 @@ import styles from '../styles/Home.module.scss';
 import WineGlass from '../assets/WineGlass';
 
 function HomePage() {
-  const [state, setState] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -12,26 +11,8 @@ function HomePage() {
     navigate('/signupPage');
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const username = e.target[0].value;
-      const password = e.target[1].value;
-      // const response = await fetch('/login', {
-      //   method: 'post',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({ username, password }),
-      // });
-
-      // if (response.ok) {
-      // navigate('/dashboard');
-
-      //   }
-    } catch (err) {
-      console.log(err);
-    }
+  const navigateLogin = function () {
+    navigate('/loginPage');
   };
 
   function loadingPretend() {
@@ -67,29 +48,9 @@ function HomePage() {
       ) : (
         <div className={styles.container}>
           <div className={styles.loginBox}>
-            <form onSubmit={handleLogin}>
-              <h2 className={styles.header}>Welcome Back</h2>
-              <input
-                type='text'
-                placeholder='Username'
-                className={styles.input}
-              ></input>
-
-              <input
-                type='password'
-                placeholder='Password'
-                className={styles.input}
-              ></input>
-              <input
-                type='submit'
-                value='Login'
-                className={styles.primaryButton}
-              ></input>
-            </form>
-            <button className={styles.secondaryButton} onClick={navigateSignup}>
-              Click here to Sign Up
-            </button>
-
+            <button onClick={installAll}>Install All</button>
+            <button onClick={navigateLogin}>Navigate Login</button>
+            <button onClick={navigateSignup}>Navigate Signup</button>
             <button onClick={loadingPretend}>
               Click this to see loading wineglass
             </button>

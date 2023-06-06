@@ -11,13 +11,15 @@ import {
 import HomePage from './src/pages/home';
 import Dashboard from './src/pages/dashboard';
 import Signup from './src/pages/signup';
+import Installation from './src/pages/installation';
 import RootLayout from './src/components/RootLayout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<RootLayout />}>
-      <Route path='/' element={<HomePage />} />
-      <Route path='/signup' element={<Signup />} />
+      <Route path='/' element={<Installation />} />
+      <Route path='/loginPage' element={<HomePage />} />
+      <Route path='/signupPage' element={<Signup />} />
       <Route path='/dashboard' element={<Dashboard />} />
     </Route>
   )

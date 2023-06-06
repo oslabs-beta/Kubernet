@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const port = 5050;
 const mongoose = require('mongoose');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 
 require('dotenv').config();
 
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 const loginRouter = require('./routes/loginRoute');
-const signUpRouter = require('./routes/signUpRoute')
+const signUpRouter = require('./routes/signUpRoute');
 
 const mongoURI = process.env.MONGO_URI;
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -24,11 +24,9 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 app.use('/login', loginRouter);
 app.use('/signup', signUpRouter);
 
-app.use('/create', 
-  grafanaController.getPanels,
-  (req, res) => {res.status(200).json(res.locals.URLS);
+app.use('/create', grafanaController.getPanels, (req, res) => {
+  res.status(200).json(res.locals.URLS);
 });
-
 
 app.use(
   '/install',
@@ -36,7 +34,17 @@ app.use(
   installController.grafEmbed,
   installController.portForward,
   (req, res) => {
-    return res.status(200)
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader(
+      'Access-Control-Allow-Methods',
+      'OPTIONS, GET, POST, PUT, PATCH, DELETE' // what matters here is that OPTIONS is present
+    );
+    res.setHeader(
+      'Access-Control-Allow-Headers',
+      'Content-Type, Authorization'
+    );
+    console.log('I reached the end');
+    return res.status(200).json('End');
   }
 );
 

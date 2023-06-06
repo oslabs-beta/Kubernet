@@ -31,6 +31,9 @@ module.exports = {
       '/main/**': {
         target: 'http://localhost:5050/',
       },
+      '/install/**': {
+        target: 'http://localhost:5050/',
+      },
     },
   },
 

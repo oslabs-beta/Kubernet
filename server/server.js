@@ -14,13 +14,15 @@ const grafanaController = require('./controllers/grafanaController');
 app.use(express.json());
 app.use(cookieParser());
 
-const loginRouter = require('./routes/route')
+const loginRouter = require('./routes/loginRoute');
+const signUpRouter = require('./routes/signUpRoute')
 
 const mongoURI = process.env.MONGO_URI;
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // redirect to routes
 app.use('/login', loginRouter);
+app.use('/signup', signUpRouter);
 
 app.use('/create', 
   grafanaController.getPanels,

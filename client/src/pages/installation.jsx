@@ -43,23 +43,26 @@ function Installation() {
     }
   }
 
-  return (
+  let render = (
     <React.Fragment>
-      {loading ? (
-        <React.Fragment>
-          <WineGlass />
-          <h1>Aerating...</h1>
-        </React.Fragment>
-      ) : (
-        <div className={styles.container}>
-          <div className={styles.loginBox}>
-            <button onClick={installAll}>New User</button>
-            <button onClick={portForward}>Already Have an Account</button>
-          </div>
+      <div className={styles.container}>
+        <div className={styles.loginBox}>
+          <button onClick={installAll}>New User</button>
+          <button onClick={portForward}>Already Have an Account</button>
         </div>
-      )}
+      </div>
     </React.Fragment>
   );
+
+  if (loading)
+    render = (
+      <React.Fragment>
+        <WineGlass />
+        <h1>Aerating...</h1>
+      </React.Fragment>
+    );
+
+  return { render };
 }
 
 export default Installation;

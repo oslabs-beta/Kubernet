@@ -7,14 +7,6 @@ function HomePage() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const navigateSignup = function () {
-    navigate('/signupPage');
-  };
-
-  const navigateLogin = function () {
-    navigate('/loginPage');
-  };
-
   function loadingPretend() {
     setLoading((val) => !val);
   }
@@ -30,9 +22,27 @@ function HomePage() {
       setLoading(false);
       const json = await response.json();
       console.log(json);
+      navigate('/signupPage');
     } catch (err) {
       console.log(err);
     }
+  }
+
+  async function portForward(){
+    try {
+      setLoading(true);
+      const response = await fetch('http://localhost:5050/portforward');
+
+      if (!response.ok){
+        console.log('Unable to Port-Forward')
+      }
+
+      setLoading(false);
+      const json = await response.json();
+      console.log(json);
+      navigate('/loginPage');
+    } catch (err){
+    console.log(err)};
   }
 
   return (
@@ -40,20 +50,13 @@ function HomePage() {
       {loading ? (
         <>
           <WineGlass />
-
-          <button onClick={loadingPretend}>
-            Click to toggle loading wineglass
-          </button>
+          <h1>Aerating...</h1>
         </>
       ) : (
         <div className={styles.container}>
           <div className={styles.loginBox}>
-            <button onClick={installAll}>Install All</button>
-            <button onClick={navigateLogin}>Navigate Login</button>
-            <button onClick={navigateSignup}>Navigate Signup</button>
-            <button onClick={loadingPretend}>
-              Click this to see loading wineglass
-            </button>
+            <button onClick={installAll}>New User</button>
+            <button onClick={portForward}>Already Have an Account</button>
           </div>
         </div>
       )}

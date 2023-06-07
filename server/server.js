@@ -46,6 +46,14 @@ app.use(
   }
 );
 
+app.use(
+  '/portforward',
+  installController.portForward,
+  (req, res) => {
+    return res.status(200).json('Port-Forward Successful');
+  }
+);
+
 app.use((req, res) => res.status(404).send('Page Not Found'));
 
 app.use((err, req, res, next) => {

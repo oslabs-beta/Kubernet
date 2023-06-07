@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from '../styles/Home.module.scss';
 import WineGlass from '../assets/WineGlass';
 
-function HomePage() {
+function LoginPage() {
   const [state, setState] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -15,6 +15,7 @@ function HomePage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       const username = e.target[0].value;
       const password = e.target[1].value;
 
@@ -30,6 +31,7 @@ function HomePage() {
 
       if (response.ok) {
         console.log(username, password);
+        setLoading(false);
         navigate('/dashboard', { state: { data } });
       }
     } catch (err) {
@@ -46,10 +48,6 @@ function HomePage() {
       {loading ? (
         <>
           <WineGlass />
-
-          <button onClick={loadingPretend}>
-            Click to toggle loading wineglass
-          </button>
         </>
       ) : (
         <div className={styles.container}>
@@ -77,9 +75,6 @@ function HomePage() {
               Click here to Sign Up
             </button>
 
-            <button onClick={loadingPretend}>
-              Click this to see loading wineglass
-            </button>
           </div>
         </div>
       )}
@@ -87,4 +82,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default LoginPage;

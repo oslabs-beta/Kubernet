@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/Home.module.scss';
 
-function HomePage() {
+function SignupPage() {
   const [state, setState] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -79,4 +79,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default SignupPage;

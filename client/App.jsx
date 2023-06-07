@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 
 //imported pages
-import LoginPage from './src/pages/login';
+import LoginPage from './src/pages/LoginPage';
 import Dashboard from './src/pages/dashboard';
 import Signup from './src/pages/signup';
 import Installation from './src/pages/Installation';

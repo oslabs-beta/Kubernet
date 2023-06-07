@@ -4,6 +4,7 @@ const path = require('path');
 const port = 5050;
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 require('dotenv').config();
 
@@ -13,6 +14,7 @@ const grafanaController = require('./controllers/grafanaController');
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 
 const loginRouter = require('./routes/loginRoute');
 const signUpRouter = require('./routes/signUpRoute');

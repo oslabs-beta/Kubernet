@@ -14,7 +14,6 @@ function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      
       setLoading(true);
       const username = e.target[0].value;
       const password = e.target[1].value;
@@ -30,46 +29,51 @@ function LoginPage() {
       const data = await response.json();
 
       if (response.ok) {
-        console.log(username, password);
         setLoading(false);
         navigate('/dashboard', { state: { data } });
       }
+
+      //  What if response was not ok
     } catch (err) {
+      //  Better error handler
       console.log(err);
     }
   };
 
-  return (
+  let render = (
     <React.Fragment>
-      {loading ? (
-        <WineGlass />
-      ) : (
-        <div className={styles.container}>
-          <div className={styles.loginBox}>
-            <form onSubmit={handleLogin}>
-              <h2 className={styles.header}>Welcome Back</h2>
-              <input
-                type='text'
-                placeholder='Username'
-                className={styles.input}></input>
+      <div className={styles.container}>
+        <div className={styles.loginBox}>
+          <form onSubmit={handleLogin}>
+            <h2 className={styles.header}>Welcome Back</h2>
+            <input
+              type='text'
+              placeholder='Username'
+              className={styles.input}
+            />
 
-              <input
-                type='password'
-                placeholder='Password'
-                className={styles.input}></input>
-              <input
-                type='submit'
-                value='Login'
-                className={styles.primaryButton}></input>
-            </form>
-            <button className={styles.secondaryButton} onClick={navigateSignup}>
-              Click here to Sign Up
-            </button>
-          </div>
+            <input
+              type='password'
+              placeholder='Password'
+              className={styles.input}
+            />
+            <input
+              type='submit'
+              value='Login'
+              className={styles.primaryButton}
+            />
+          </form>
+          <button className={styles.secondaryButton} onClick={navigateSignup}>
+            Click here to Sign Up
+          </button>
         </div>
-      )}
+      </div>
     </React.Fragment>
   );
+
+  if (loading) render = <WineGlass />;
+
+  return { render };
 }
 
 export default LoginPage;

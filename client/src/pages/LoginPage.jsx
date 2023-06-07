@@ -73,7 +73,7 @@ function LoginPage() {
 
   if (loading) render = <WineGlass />;
 
-  return { render };
+  return <React.Fragment>{render}</React.Fragment>;
 }
 
 export default LoginPage;

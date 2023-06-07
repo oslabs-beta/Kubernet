@@ -62,7 +62,7 @@ function Installation() {
       </React.Fragment>
     );
 
-  return { render };
+  return <React.Fragment>{render}</React.Fragment>;
 }
 
 export default Installation;

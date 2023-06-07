@@ -40,16 +40,10 @@ function SignupPage() {
         <form onSubmit={handleSignup}>
           <h2 className={styles.header}>Enter to Sign up</h2>
 
-          <input
-            type='text'
-            value={username}
-            placeholder='Username'
-            className={styles.input}
-          />
+          <input type='text' placeholder='Username' className={styles.input} />
 
           <input
             type='password'
-            value={password}
             placeholder='Password'
             className={styles.input}
           />

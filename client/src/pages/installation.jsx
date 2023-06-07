@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from '../styles/Home.module.scss';
 import WineGlass from '../assets/WineGlass';
 
-function HomePage() {
+function Installation() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -28,21 +28,22 @@ function HomePage() {
     }
   }
 
-  async function portForward(){
+  async function portForward() {
     try {
       setLoading(true);
       const response = await fetch('http://localhost:5050/portforward');
 
-      if (!response.ok){
-        console.log('Unable to Port-Forward')
+      if (!response.ok) {
+        console.log('Unable to Port-Forward');
       }
 
       setLoading(false);
       const json = await response.json();
       console.log(json);
       navigate('/loginPage');
-    } catch (err){
-    console.log(err)};
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
@@ -64,4 +65,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default Installation;

@@ -11,7 +11,7 @@ import {
 import LoginPage from './src/pages/login';
 import Dashboard from './src/pages/dashboard';
 import Signup from './src/pages/signup';
-import Installation from './src/pages/installation';
+import Installation from './src/pages/Installation';
 import RootLayout from './src/components/RootLayout';
 
 const router = createBrowserRouter(

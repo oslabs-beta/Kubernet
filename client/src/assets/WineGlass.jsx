@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './WineGlass.module.scss';
-import WineSwirl from './WineGlass.gif';
+import WineSwirl from './WineSwirl.gif';
 
 function WineGlass() {
   return (

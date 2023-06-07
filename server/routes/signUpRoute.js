@@ -5,6 +5,7 @@ const userController = require('../controllers/userController');
 const cookieController = require('../controllers/cookieController');
 const sessionController = require('../controllers/sessionController');
 const grafanaController = require('../controllers/grafanaController');
+const installController = require('../controllers/installController');
 
 
 signUpRouter.post('/',

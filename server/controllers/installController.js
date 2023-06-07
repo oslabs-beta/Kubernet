@@ -79,7 +79,8 @@ installController.grafEmbed = (req, res, next) => {
 
   //  Delete old prometheus-grafana pod
   spawnSync(`kubectl delete pod ${pod}`, { stdio: 'inherit', shell: true });
-  return next();
+
+  setTimeout(() => next(), 4000);
 };
 
 /**
@@ -98,10 +99,10 @@ installController.portForward = (req, res, next) => {
     { shell: true }
   );
 
-  //  Moves to next middleware if port forward was successful 
+  //  Moves to next middleware if port forward was successful
   port.stdout.on('data', (data) => {
     console.log('Success! Grafana can now be access on localhost:3000');
-    return next();
+    // return next();
   });
 
   port.stderr.on('data', (data) => {
@@ -114,6 +115,8 @@ installController.portForward = (req, res, next) => {
       },
     });
   });
+
+  return next();
 };
 
 module.exports = installController;

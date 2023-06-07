@@ -32,27 +32,13 @@ app.use(
   installController.grafEmbed,
   installController.portForward,
   (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader(
-      'Access-Control-Allow-Methods',
-      'OPTIONS, GET, POST, PUT, PATCH, DELETE' // what matters here is that OPTIONS is present
-    );
-    res.setHeader(
-      'Access-Control-Allow-Headers',
-      'Content-Type, Authorization'
-    );
-    console.log('I reached the end');
     return res.status(200).json('End');
   }
 );
 
-app.use(
-  '/portforward',
-  installController.portForward,
-  (req, res) => {
-    return res.status(200).json('Port-Forward Successful');
-  }
-);
+app.use('/portforward', installController.portForward, (req, res) => {
+  return res.status(200).json('Port-Forward Successful');
+});
 
 app.use((req, res) => res.status(404).send('Page Not Found'));
 

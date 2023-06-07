@@ -1,26 +1,17 @@
-import React, { Component, useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/Home.module.scss';
 
-function HomePage() {
-  const [state, setState] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+function SignupPage() {
   const navigate = useNavigate();
 
-  const usernameChangeEvent = (event) => {
-    setUsername(event.target.value);
-  };
-
-  const passwordChangeEvent = (event) => {
-    setPassword(event.target.value);
-  };
   const navigateLogin = function () {
     navigate('/loginPage');
   };
 
   const handleSignup = async (e) => {
     e.preventDefault();
+
     try {
       const username = e.target[0].value;
       const password = e.target[1].value;
@@ -36,7 +27,6 @@ function HomePage() {
       const data = await response.json();
 
       if (response.ok) {
-        console.log(username, password);
         navigate('/dashboard', { state: { data } });
       }
     } catch (err) {
@@ -53,24 +43,24 @@ function HomePage() {
           <input
             type='text'
             value={username}
-            onChange={usernameChangeEvent}
             placeholder='Username'
             className={styles.input}
-          ></input>
+          />
 
           <input
             type='password'
             value={password}
             placeholder='Password'
-            onChange={passwordChangeEvent}
             className={styles.input}
-          ></input>
+          />
+
           <input
             type='submit'
             value='Sign Up!'
             className={styles.primaryButton}
-          ></input>
+          />
         </form>
+
         <button onClick={navigateLogin} className={styles.secondaryButton}>
           Have an Account?
         </button>
@@ -79,4 +69,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default SignupPage;

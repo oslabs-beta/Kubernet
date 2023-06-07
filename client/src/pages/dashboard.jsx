@@ -1,5 +1,5 @@
-import React, { Component, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import styles from '../styles/Dashboard.module.scss';
 
 function Dashboard() {
@@ -14,15 +14,10 @@ function Dashboard() {
         key={graph}
         width='450'
         height='200'
-        frameborder='0'
-      ></iframe>
+        frameborder='0'></iframe>
     );
   }
-  return (
-    <>
-      <div className={styles.numericMetrics}>{iframeArray}</div>
-    </>
-  );
+  return <div className={styles.numericMetrics}>{iframeArray}</div>;
 }
 
 export default Dashboard;

@@ -1,15 +1,11 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/Home.module.scss';
 import WineGlass from '../assets/WineGlass';
 
-function HomePage() {
+function Installation() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
-  function loadingPretend() {
-    setLoading((val) => !val);
-  }
 
   async function installAll() {
     try {
@@ -17,51 +13,56 @@ function HomePage() {
       const response = await fetch('http://localhost:5050/install');
 
       if (!response.ok) {
+        //  Throw new error
         console.log('Error installing');
       }
+
       setLoading(false);
-      const json = await response.json();
-      console.log(json);
       navigate('/signupPage');
     } catch (err) {
+      //  Better error handler here
       console.log(err);
     }
   }
 
-  async function portForward(){
+  async function portForward() {
     try {
       setLoading(true);
       const response = await fetch('http://localhost:5050/portforward');
 
-      if (!response.ok){
-        console.log('Unable to Port-Forward')
+      if (!response.ok) {
+        //  Throw new error
+        console.log('Unable to Port-Forward');
       }
 
       setLoading(false);
-      const json = await response.json();
-      console.log(json);
       navigate('/loginPage');
-    } catch (err){
-    console.log(err)};
+    } catch (err) {
+      //  Better error handler here
+      console.log(err);
+    }
   }
 
-  return (
-    <>
-      {loading ? (
-        <>
-          <WineGlass />
-          <h1>Aerating...</h1>
-        </>
-      ) : (
-        <div className={styles.container}>
-          <div className={styles.loginBox}>
-            <button onClick={installAll}>New User</button>
-            <button onClick={portForward}>Already Have an Account</button>
-          </div>
+  let render = (
+    <React.Fragment>
+      <div className={styles.container}>
+        <div className={styles.loginBox}>
+          <button onClick={installAll}>New User</button>
+          <button onClick={portForward}>Already Have an Account</button>
         </div>
-      )}
-    </>
+      </div>
+    </React.Fragment>
   );
+
+  if (loading)
+    render = (
+      <React.Fragment>
+        <WineGlass />
+        <h1>Aerating...</h1>
+      </React.Fragment>
+    );
+
+  return <React.Fragment>{render}</React.Fragment>;
 }
 
-export default HomePage;
+export default Installation;

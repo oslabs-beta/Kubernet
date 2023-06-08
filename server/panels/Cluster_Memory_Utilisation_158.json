@@ -20,7 +20,7 @@
         ]
       },
       "color": {
-        "fixedColor": "text",
+        "fixedColor": "#22577a",
         "mode": "fixed"
       },
       "unit": "percentunit"
@@ -44,9 +44,10 @@
     },
     "orientation": "auto",
     "textMode": "auto",
-    "colorMode": "value",
+    "colorMode": "background_solid",
     "graphMode": "none",
-    "justifyMode": "auto"
+    "justifyMode": "auto",
+    "text": {}
   },
   "pluginVersion": "9.5.2",
   "targets": [
@@ -62,6 +63,7 @@
       "refId": "A"
     }
   ],
-  "title": "Memory Utilisation",
-  "type": "stat"
+  "transparent": true,
+  "type": "stat",
+  "title": "Memory Utilisation"
 }

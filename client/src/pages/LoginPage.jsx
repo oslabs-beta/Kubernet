@@ -45,30 +45,32 @@ function LoginPage() {
       <div className={styles.container}>
         <div className={styles.loginBox}>
           <form onSubmit={handleLogin}>
-            <h2 className={styles.header}>Welcome Back</h2>
+            <h2 className={styles.header}>Kubernet</h2>
             <input
               type='text'
               placeholder='Username'
               className={styles.input}
             />
-
-            
           
             <input
               type='password'
               placeholder='Password'
               className={styles.input}
             />
-        
-            <input
-              type='submit'
-              value='Login'
-              className={styles.primaryButton}
-            />
+            <div class={styles.buttons}>
+              <input
+                type='submit'
+                value='Login'
+                className={styles.primaryButton}
+              />
+              <input
+                type='button'
+                value= 'Signup'
+                onClick={navigateSignup}
+                className={styles.secondaryButton}
+              />
+            </div>
           </form>
-          <button className={styles.secondaryButton} onClick={navigateSignup}>
-            New User
-          </button>
         </div>
       </div>
     </React.Fragment>

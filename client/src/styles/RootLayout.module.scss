@@ -18,6 +18,21 @@
   background-color: $color2;
 }
 
+.div {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo {
+  height: 3rem;
+
+  position: relative;
+  left: 5rem;
+}
+
 .link {
   margin: 0 10rem;
 

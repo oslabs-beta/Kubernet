@@ -37,8 +37,7 @@ function SignupPage() {
   return (
     <div className={styles.container}>
       <div className={styles.box}>
-        <form onSubmit={handleSignup}>
-
+        <form className={styles.form} onSubmit={handleSignup}>
           <input type='text' placeholder='Username' className={styles.input} />
 
           <input
@@ -46,22 +45,12 @@ function SignupPage() {
             placeholder='Password'
             className={styles.input}
           />
-
-          <div className={styles.buttons}>
-            <input
-              type='submit'
-              value='Create Account'
-              className={styles.primaryButton}
-            />
-            
-            <input
-              type='button'
-              value='Have an Account?'
-              className={styles.secondaryButton}
-              onClick={navigateLogin}
-            />
-          </div>
+          <button className={styles.primary}>Create Account</button>
         </form>
+
+        <button className={styles.secondary} onClick={navigateLogin}>
+          <i>already have an account?</i>
+        </button>
       </div>
     </div>
   );

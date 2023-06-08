@@ -13,6 +13,25 @@
   border-radius: 10px;
 }
 
+.box {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 42rem;
+  height: 24rem;
+  border: 1px solid $color4;
+
+  border-radius: 10px;
+
+  background: $color1;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
 form {
   display: flex;
   flex-direction: column;

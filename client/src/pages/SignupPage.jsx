@@ -36,9 +36,8 @@ function SignupPage() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.loginBox}>
+      <div className={styles.box}>
         <form onSubmit={handleSignup}>
-          <h2 className={styles.header}>Kubernet</h2>
 
           <input type='text' placeholder='Username' className={styles.input} />
 

@@ -1,18 +1,5 @@
 @import '_colors.scss';
 
-.loginBox {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid $color4;
-  padding: 80px;
-  border-radius: 15px;
-  background: $color1;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-radius: 10px;
-}
-
 .box {
   display: flex;
   flex-direction: column;
@@ -32,10 +19,14 @@
   -webkit-backdrop-filter: blur(15px);
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
+
+  width: 70%;
+  height: 60%;
 }
 
 .container {
@@ -47,105 +38,62 @@ form {
 }
 
 .input {
-  margin: 2px 2px 4px 2px;
-  font-size: 20px;
-  // padding: 3px;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  width: 70%;
+  height: 3rem;
+
+  font-size: 1.25rem;
   text-align: center;
+
   border: 2px solid $color2;
-  height: 30px;
+  border-radius: 10px;
 }
 
 .input:hover {
   background-color: rgb(251, 251, 251);
 }
 
-.buttons {
-  margin-top: 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 70%;
-  // border: 1px solid black;
-
+.input:focus::placeholder {
+  color: transparent;
 }
 
-.primaryButton {
+.primary {
+  width: 60%;
+  height: 3rem;
+
   color: $color1;
-  outline: none;
-  border-radius: 5px;
-  font-size: 15px;
-  padding: 0px;
-  margin: 2px 2px 4px 2px;
   background-color: $color2;
-  border: 1px solid $color2;
-  height: 25px;
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  font-size: 1.25rem;
+
+  transform: scale(1);
+  transition-duration: 300ms;
 }
 
-.primaryButton:hover, .primaryButton:focus, .primaryButton:active {
-  color: $color1;
+.primary:hover {
   cursor: pointer;
-  background: #193f59;
-}
-.primaryButton:hover:before, .secondaryButton:focus:before, .hvr-sweep-to-top:active:before {
-  -webkit-transform: scaleY(1);
-  transform: scaleY(1);
+
+  transform: scale(1.15);
+  transition-duration: 300ms;
 }
 
-::placeholder {
-  font-size: 15px;
-  color: $color2
-}
-
-.header {
+.secondary {
+  background-color: transparent;
   color: $color2;
-  text-align: center;
-  font-size: xx-large;
+
+  font-size: 1.25rem;
+
+  border: 1px solid transparent;
 }
 
-.secondaryButton {
-  color: $color2;
-  outline: none;
-  border-radius: 5px;
-  font-size: 15px;
-  padding: 0px;
-  margin: 2px 2px 4px 2px;
-  height: 25px;
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  
-}
-
-.secondaryButton:hover, .secondaryButton:focus, .secondaryButton:active {
-  color: $color2;
+.secondary:hover {
   cursor: pointer;
-  background-color: #dfdfdf;
+  text-decoration: underline;
 }
-.secondaryButton:hover:before, .secondaryButton:focus:before, .hvr-sweep-to-top:active:before {
-  -webkit-transform: scaleY(1);
-  transform: scaleY(1);
-}
-

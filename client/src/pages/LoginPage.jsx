@@ -44,32 +44,25 @@ function LoginPage() {
     <React.Fragment>
       <div className={styles.container}>
         <div className={styles.box}>
-          <form onSubmit={handleLogin}>
+          <form className={styles.form} onSubmit={handleLogin}>
             <input
               type='text'
               placeholder='Username'
               className={styles.input}
             />
-          
+
             <input
               type='password'
               placeholder='Password'
               className={styles.input}
             />
-            <div class={styles.buttons}>
-              <input
-                type='submit'
-                value='Login'
-                className={styles.primaryButton}
-              />
-              <input
-                type='button'
-                value= 'Signup'
-                onClick={navigateSignup}
-                className={styles.secondaryButton}
-              />
-            </div>
+
+            <button className={styles.primary}>Login</button>
           </form>
+
+          <button className={styles.secondary} onClick={navigateSignup}>
+            <i>create an account</i>
+          </button>
         </div>
       </div>
     </React.Fragment>

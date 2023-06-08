@@ -1,0 +1,88 @@
+@import '../styles/colors';
+
+.container {
+  height: 90%;
+  margin: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 42rem;
+  height: 24rem;
+  border: 1px solid $color4;
+
+  border-radius: 10px;
+
+  background: $color1;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.primary {
+  width: 23rem;
+  height: 8rem;
+
+  background-color: $color2;
+  color: $color1;
+
+  font-size: 3em;
+
+  border-radius: 10px;
+  border: 1px solid transparent;
+
+  transform: scale(1);
+  transition-duration: 300ms;
+}
+
+.secondary {
+  background-color: transparent;
+  color: $color2;
+
+  border: 1px solid transparent;
+
+  padding: 0;
+
+  font-size: 1.25em;
+}
+
+.primary:hover,
+.secondary:hover {
+  cursor: pointer;
+}
+
+.primary:hover {
+  transform: scale(1.15);
+  transition-duration: 300ms;
+}
+
+// @keyframes bump {
+//   0% {
+//     transform: scale(1);
+//   }
+//   10% {
+//     transform: scale(0.9);
+//   }
+//   30% {
+//     transform: scale(1.1);
+//   }
+//   50% {
+//     transform: scale(1.15);
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// }
+
+.secondary:hover {
+  text-decoration: underline;
+}

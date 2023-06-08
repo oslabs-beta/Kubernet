@@ -8,27 +8,42 @@
 }
 
 .header {
+  width: 100%;
+
   display: flex;
   flex: 1;
-  background-color: $color2;
   align-items: center;
+  justify-content: space-between;
+
+  background-color: $color2;
 }
 
 .link {
-  margin: 10px;
+  margin: 0 10rem;
+
   text-decoration: none;
   color: $color1;
-  outline: none;
 
-  border-radius: 5px;
   font-size: 20px;
-  padding: 2px;
+}
+
+.title {
+  font-size: 32px;
+  font-family: monospace; //Consider a unique font for name
+
+  color: $color1; //Maybe a different color for the title??
 }
 
 .outlet {
-  margin-top: 5px;
   display: flex;
   flex-direction: column;
   flex: 14;
+
   background-color: $color4;
+}
+
+.copy {
+  color: rgba(81, 81, 81, 0.462);
+
+  margin-left: 1.25rem;
 }

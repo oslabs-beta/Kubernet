@@ -58,7 +58,6 @@ function Installation() {
     render = (
       <React.Fragment>
         <WineGlass />
-        <h1>Aerating...</h1>
       </React.Fragment>
     );
 

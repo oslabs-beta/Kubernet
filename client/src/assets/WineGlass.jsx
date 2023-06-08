@@ -24,7 +24,7 @@ function WineGlass() {
     const interval = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * messageArray.length);
       setMessage(messageArray[randomIndex]);
-    }, 2900);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);

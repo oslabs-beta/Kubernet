@@ -52,11 +52,14 @@ function LoginPage() {
               className={styles.input}
             />
 
+            
+          
             <input
               type='password'
               placeholder='Password'
               className={styles.input}
             />
+        
             <input
               type='submit'
               value='Login'
@@ -64,7 +67,7 @@ function LoginPage() {
             />
           </form>
           <button className={styles.secondaryButton} onClick={navigateSignup}>
-            Click here to Sign Up
+            New User
           </button>
         </div>
       </div>

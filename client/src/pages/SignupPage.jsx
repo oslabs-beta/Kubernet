@@ -53,6 +53,7 @@ function SignupPage() {
             value='Sign Up!'
             className={styles.primaryButton}
           />
+          
         </form>
 
         <button onClick={navigateLogin} className={styles.secondaryButton}>

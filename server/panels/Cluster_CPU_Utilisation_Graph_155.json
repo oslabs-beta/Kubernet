@@ -9,9 +9,9 @@
         "drawStyle": "line",
         "lineInterpolation": "stepAfter",
         "barAlignment": 0,
-        "lineWidth": 1,
-        "fillOpacity": 28,
-        "gradientMode": "scheme",
+        "lineWidth": 0,
+        "fillOpacity": 100,
+        "gradientMode": "hue",
         "spanNulls": false,
         "showPoints": "never",
         "pointSize": 1,
@@ -39,7 +39,8 @@
         }
       },
       "color": {
-        "mode": "continuous-YlRd",
+        "mode": "fixed",
+        "fixedColor": "#22577a",
         "seriesBy": "last"
       },
       "mappings": [],
@@ -64,8 +65,8 @@
   "gridPos": {
     "h": 8,
     "w": 12,
-    "x": 0,
-    "y": 24
+    "x": 12,
+    "y": 0
   },
   "id": 155,
   "options": {
@@ -97,5 +98,6 @@
     }
   ],
   "title": "CPU Utilisation",
+  "transparent": true,
   "type": "timeseries"
 }

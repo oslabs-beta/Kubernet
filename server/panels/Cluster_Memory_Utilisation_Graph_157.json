@@ -9,9 +9,9 @@
         "drawStyle": "line",
         "lineInterpolation": "linear",
         "barAlignment": 0,
-        "lineWidth": 1,
-        "fillOpacity": 28,
-        "gradientMode": "scheme",
+        "lineWidth": 0,
+        "fillOpacity": 100,
+        "gradientMode": "hue",
         "spanNulls": false,
         "showPoints": "never",
         "pointSize": 5,
@@ -36,7 +36,8 @@
         }
       },
       "color": {
-        "mode": "continuous-YlRd"
+        "mode": "fixed",
+        "fixedColor": "#22577a"
       },
       "mappings": [],
       "thresholds": {
@@ -60,8 +61,8 @@
   "gridPos": {
     "h": 8,
     "w": 12,
-    "x": 0,
-    "y": 0
+    "x": 12,
+    "y": 8
   },
   "id": 157,
   "options": {
@@ -90,5 +91,6 @@
     }
   ],
   "title": "Memory Utilisation",
+  "transparent": true,
   "type": "timeseries"
 }

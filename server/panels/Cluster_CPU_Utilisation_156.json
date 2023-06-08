@@ -1,30 +1,39 @@
 {
-  "type": "stat",
-  "title": "CPU Utilisation",
-  "gridPos": {
-    "x": 12,
-    "y": 8,
-    "w": 12,
-    "h": 8
-  },
   "datasource": {
-    "uid": "prometheus",
-    "type": "prometheus"
+    "type": "prometheus",
+    "uid": "prometheus"
+  },
+  "fieldConfig": {
+    "defaults": {
+      "mappings": [],
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "green",
+            "value": null
+          },
+          {
+            "color": "red",
+            "value": 80
+          }
+        ]
+      },
+      "color": {
+        "fixedColor": "#22577a",
+        "mode": "fixed"
+      },
+      "unit": "percentunit"
+    },
+    "overrides": []
+  },
+  "gridPos": {
+    "h": 8,
+    "w": 12,
+    "x": 12,
+    "y": 0
   },
   "id": 156,
-  "targets": [
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "refId": "A",
-      "editorMode": "code",
-      "expr": "cluster:node_cpu:ratio_rate5m",
-      "legendFormat": "__auto",
-      "range": true
-    }
-  ],
   "options": {
     "reduceOptions": {
       "values": false,
@@ -35,33 +44,25 @@
     },
     "orientation": "auto",
     "textMode": "value",
-    "colorMode": "value",
+    "colorMode": "background_solid",
     "graphMode": "none",
     "justifyMode": "center"
   },
-  "fieldConfig": {
-    "defaults": {
-      "mappings": [],
-      "thresholds": {
-        "mode": "absolute",
-        "steps": [
-          {
-            "value": null,
-            "color": "green"
-          },
-          {
-            "value": 80,
-            "color": "red"
-          }
-        ]
+  "pluginVersion": "9.5.2",
+  "targets": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
       },
-      "color": {
-        "mode": "fixed",
-        "fixedColor": "text"
-      },
-      "unit": "percentunit"
-    },
-    "overrides": []
-  },
-  "pluginVersion": "9.5.2"
+      "editorMode": "code",
+      "expr": "cluster:node_cpu:ratio_rate5m",
+      "legendFormat": "__auto",
+      "range": true,
+      "refId": "A"
+    }
+  ],
+  "title": "CPU Utilisation",
+  "type": "stat",
+  "transparent": true
 }

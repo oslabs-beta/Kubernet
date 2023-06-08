@@ -34,10 +34,10 @@ const grafanaController = {
       .then((data) => {
         // console.log(data);
         const { uid } = data;
-        urlStore.cpuUtil = `http://localhost:3000/d-solo/${uid}/KubernetSuperSpecialDashboard/?panelId=156&orgId=1&refresh=5s`;
-        urlStore.cpuUtilGraph = `http://localhost:3000/d-solo/${uid}/KubernetSuperSpecialDashboard/?panelId=155&orgId=1&refresh=5s`;
-        urlStore.memUtil = `http://localhost:3000/d-solo/${uid}/KubernetSuperSpecialDashboard/?panelId=158&orgId=1&refresh=5s`;
-        urlStore.memUtilGraph = `http://localhost:3000/d-solo/${uid}/KubernetSuperSpecialDashboard/?panelId=157&orgId=1&refresh=5s`;
+        urlStore.cpuUtil = `http://localhost:3000/d-solo/${uid}/KubernetSuperSpecialDashboard/?panelId=156&theme=light&orgId=1&refresh=5s`;
+        urlStore.cpuUtilGraph = `http://localhost:3000/d-solo/${uid}/KubernetSuperSpecialDashboard/?panelId=155&theme=light&orgId=1&refresh=5s`;
+        urlStore.memUtil = `http://localhost:3000/d-solo/${uid}/KubernetSuperSpecialDashboard/?panelId=158&theme=light&orgId=1&refresh=5s`;
+        urlStore.memUtilGraph = `http://localhost:3000/d-solo/${uid}/KubernetSuperSpecialDashboard/?panelId=157&theme=light&orgId=1&refresh=5s`;
         res.locals.URLS = urlStore;
         return next();
       })

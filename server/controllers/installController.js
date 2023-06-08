@@ -80,7 +80,7 @@ installController.grafEmbed = (req, res, next) => {
   //  Delete old prometheus-grafana pod
   spawnSync(`kubectl delete pod ${pod}`, { stdio: 'inherit', shell: true });
 
-  setTimeout(() => next(), 4000);
+  setTimeout(() => next(), 6000);
 };
 
 /**

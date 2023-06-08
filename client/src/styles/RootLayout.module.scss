@@ -10,17 +10,16 @@
 .header {
   display: flex;
   flex: 1;
-  background-color: $color3;
+  background-color: $color2;
   align-items: center;
 }
 
 .link {
   margin: 10px;
   text-decoration: none;
-  color: $color3;
+  color: $color1;
   outline: none;
-  border: 1px solid $color1;
-  background-color: $color4;
+
   border-radius: 5px;
   font-size: 20px;
   padding: 2px;
@@ -31,11 +30,5 @@
   display: flex;
   flex-direction: column;
   flex: 14;
-  background: rgb(162, 72, 79);
-  background: radial-gradient(
-    circle,
-    rgba(162, 72, 79, 1) 0%,
-    rgba(109, 40, 42, 1) 21%,
-    rgba(43, 11, 10, 1) 53%
-  );
+  background-color: $color4;
 }

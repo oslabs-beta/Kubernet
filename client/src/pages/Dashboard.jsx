@@ -17,7 +17,9 @@ function Dashboard() {
         frameborder='0'></iframe>
     );
   }
-  return <div className={styles.numericMetrics}>{iframeArray}</div>;
-}
-//  Notes
+  return <div className={styles.container}>
+      <div className={styles.numericMetrics}>{[iframeArray[0]].concat(iframeArray[2])}</div>
+      <div className={styles.chartMetrics}>{[iframeArray[1]].concat(iframeArray[3])}</div>
+    </div>
+}//  Notes
 export default Dashboard;

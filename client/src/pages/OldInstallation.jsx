@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './Installation.module.scss';
-import WineGlass from '../assets/WineGlass';
+import WineGlass from '../assets/WineGlass.tsx';
 
 function Installation() {
   const [loading, setLoading] = useState(false);

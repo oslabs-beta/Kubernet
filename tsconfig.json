@@ -4,7 +4,9 @@
     "module": "CommonJS",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   },
   "include": ["client/**/*", "server/**/*"],
   "exclude": ["dist", "node_modules"]

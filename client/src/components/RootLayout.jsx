@@ -16,9 +16,11 @@ function RootLayout() {
           </NavLink>
         </div>
 
+        <div className={styles.div}>
         <span className={styles.title}>Kubernét</span>
+        </div>
 
-        <div>
+        <div className={styles.div}>
           <NavLink to='/' className={styles.link}>
             About
           </NavLink>

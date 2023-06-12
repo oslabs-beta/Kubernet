@@ -59,12 +59,7 @@ function Installation() {
     </React.Fragment>
   );
 
-  if (loading)
-    render = (
-      <React.Fragment>
-        <WineGlass />
-      </React.Fragment>
-    );
+  if (loading) render = <WineGlass />;
 
   let added = <></>;
   if (location?.state?.notLogged) {

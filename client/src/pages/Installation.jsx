@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './Installation.module.scss';
 import WineGlass from '../assets/WineGlass';
 
 function Installation() {
   const [loading, setLoading] = useState(false);
+  const location = useLocation();
   const navigate = useNavigate();
 
   async function installAll() {
@@ -60,7 +61,17 @@ function Installation() {
 
   if (loading) render = <WineGlass />;
 
-  return <React.Fragment>{render}</React.Fragment>;
+  let added = <></>;
+  if (location?.state?.notLogged) {
+    added = <div>Forgot to log in stupid</div>;
+  }
+
+  return (
+    <React.Fragment>
+      {added}
+      {render}
+    </React.Fragment>
+  );
 }
 
 export default Installation;

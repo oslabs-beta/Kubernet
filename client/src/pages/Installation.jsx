@@ -58,12 +58,7 @@ function Installation() {
     </React.Fragment>
   );
 
-  if (loading)
-    render = (
-      <React.Fragment>
-        <WineGlass />
-      </React.Fragment>
-    );
+  if (loading) render = <WineGlass />;
 
   return <React.Fragment>{render}</React.Fragment>;
 }

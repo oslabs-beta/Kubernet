@@ -1,0 +1,99 @@
+@import '_colors.scss';
+
+.box {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 42rem;
+  height: 24rem;
+  border: 1px solid $color4;
+
+  border-radius: 10px;
+
+  background: $color1;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 70%;
+  height: 60%;
+}
+
+.container {
+  height: 90%;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 70%;
+  height: 3rem;
+
+  font-size: 1.25rem;
+  text-align: center;
+
+  border: 2px solid $color2;
+  border-radius: 10px;
+}
+
+.input:hover {
+  background-color: rgb(251, 251, 251);
+}
+
+.input:focus::placeholder {
+  color: transparent;
+}
+
+.primary {
+  width: 60%;
+  height: 3rem;
+
+  color: $color1;
+  background-color: $color2;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  font-size: 1.25rem;
+
+  transform: scale(1);
+  transition-duration: 300ms;
+}
+
+.primary:hover {
+  cursor: pointer;
+
+  transform: scale(1.15);
+  transition-duration: 300ms;
+}
+
+.secondary {
+  background-color: transparent;
+  color: $color2;
+
+  font-size: 1.25rem;
+
+  border: 1px solid transparent;
+}
+
+.secondary:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

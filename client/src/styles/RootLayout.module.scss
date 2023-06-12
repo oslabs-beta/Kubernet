@@ -1,0 +1,64 @@
+@import '_colors';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0px;
+}
+
+.header {
+  width: 100%;
+
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: $color2;
+}
+
+.div {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo {
+  height: 3rem;
+
+  position: relative;
+  left: 5rem;
+}
+
+.link {
+  margin: 0 10rem;
+
+  text-decoration: none;
+  color: $color1;
+
+  font-size: 20px;
+}
+
+.title {
+  font-size: 32px;
+  font-family: monospace; //Consider a unique font for name
+
+  color: $color1; //Maybe a different color for the title??
+}
+
+.outlet {
+  display: flex;
+  flex-direction: column;
+  flex: 14;
+
+  background-color: $color4;
+}
+
+.copy {
+  color: rgba(81, 81, 81, 0.462);
+
+  margin-left: 1.25rem;
+}

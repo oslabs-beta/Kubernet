@@ -13,7 +13,7 @@
   display: flex;
   flex: 1;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 
   background-color: $color2;
 }
@@ -24,6 +24,15 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  width: 33%;
+
+}
+
+.title {
+  font-size: 32px;
+  font-family: monospace; //Consider a unique font for name
+
+  color: $color1; //Maybe a different color for the title??
 }
 
 .logo {
@@ -42,12 +51,7 @@
   font-size: 20px;
 }
 
-.title {
-  font-size: 32px;
-  font-family: monospace; //Consider a unique font for name
 
-  color: $color1; //Maybe a different color for the title??
-}
 
 .outlet {
   display: flex;

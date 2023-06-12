@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from '../styles/Home.module.scss';
 import WineGlass from '../assets/WineGlass';
 
-function LoginPage() {
+function LoginPage(): JSX.Element {
   const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
 

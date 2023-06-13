@@ -41,7 +41,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
 
   plugins: [
@@ -64,7 +64,11 @@ module.exports = {
           },
         },
       },
-
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: ['ts-loader'],
+      },
       {
         test: /\.s[ac]ss$/i,
         exclude: /node_modules/,

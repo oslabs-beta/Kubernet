@@ -1,4 +1,4 @@
-const fullDashboard = require('../panels/KubernetFullDash.json');
+// const fullDashboard = require('../panels/KubernetFullDash.json');
 
 const urlStore = {};
 

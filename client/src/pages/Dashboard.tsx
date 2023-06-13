@@ -18,19 +18,12 @@ function Dashboard(): JSX.Element {
         <iframe
           src={url}
           key={graph}
-          width='450'
-          height='200'
-          frameBorder='0'></iframe>
+        ></iframe>
       );
     }
     return (
       <div className={styles.container}>
-        <div className={styles.numericMetrics}>
-          {[iframeArray[0]].concat(iframeArray[2])}
-        </div>
-        <div className={styles.chartMetrics}>
-          {[iframeArray[1]].concat(iframeArray[3])}
-        </div>
+        {iframeArray[0]}
       </div>
     );
   }

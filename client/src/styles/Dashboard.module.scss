@@ -2,9 +2,10 @@
 
 .container {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
+  justify-content: center;
   height: 100%;
-  // border: 1px solid black;
+  border: 1px solid black;
   width: 100%;
 }
 
@@ -33,9 +34,10 @@
 }
 
 iframe {
-  margin: 10px;
+  // margin: 10px;
+  width: 100%;
   border: 3px solid $color1;
-  padding: 10px;
+  // padding: 10px;
   border-radius: 5px;
   // background-color: $color3;
 }

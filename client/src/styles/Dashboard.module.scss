@@ -2,40 +2,17 @@
 
 .container {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
+  justify-content: center;
   height: 100%;
   // border: 1px solid black;
   width: 100%;
 }
 
-.numericMetrics {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex: 5;
-  // border: 1px solid rgb(56, 255, 185);
-  iframe {
-    width: 600px;
-    height: 400px;
-  }
-}
-
-.chartMetrics {
-  display: flex;
-  align-items: flex-start;
-  flex: 5;
-  justify-content: space-around;
-  // border: 1px solid rgb(255, 45, 45);
-  iframe {
-    width: 800px;
-    height: 400px;
-  }
-}
-
 iframe {
-  margin: 10px;
-  border: 3px solid $color1;
-  padding: 10px;
+  // margin: 10px;
+  width: 100%;
+  // border: 30px solid $color1;
+  // padding: 10px;
   border-radius: 5px;
-  // background-color: $color3;
 }

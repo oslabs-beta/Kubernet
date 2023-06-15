@@ -1,7 +1,4 @@
-const cpuUtil = require('../panels/Cluster_CPU_Utilisation_156.json');
-const cpuUtilGraph = require('../panels/Cluster_CPU_Utilisation_Graph_155.json');
-const memUtil = require('../panels/Cluster_Memory_Utilisation_158.json');
-const memUtilGraph = require('../panels/Cluster_Memory_Utilisation_Graph_157.json');
+const fullDashboard = require('../panels/KubernetFullDash.json');
 
 const urlStore = {};
 
@@ -23,7 +20,7 @@ const grafanaController = {
           schemaVersion: 16,
           version: 0,
           refresh: '15s',
-          panels: [cpuUtil, cpuUtilGraph, memUtil, memUtilGraph],
+          panels: fullDashboard,
         },
         folderId: 0,
         message: '',
@@ -34,10 +31,7 @@ const grafanaController = {
       .then((data) => {
         // console.log(data);
         const { uid } = data;
-        urlStore.cpuUtil = `http://localhost:3000/d-solo/${uid}/KubernetSuperSpecialDashboard/?panelId=156&theme=light&orgId=1&refresh=5s`;
-        urlStore.cpuUtilGraph = `http://localhost:3000/d-solo/${uid}/KubernetSuperSpecialDashboard/?panelId=155&theme=light&orgId=1&refresh=5s`;
-        urlStore.memUtil = `http://localhost:3000/d-solo/${uid}/KubernetSuperSpecialDashboard/?panelId=158&theme=light&orgId=1&refresh=5s`;
-        urlStore.memUtilGraph = `http://localhost:3000/d-solo/${uid}/KubernetSuperSpecialDashboard/?panelId=157&theme=light&orgId=1&refresh=5s`;
+        urlStore.fullDashboard = `http://localhost:3000/d/${uid}/KubernetSuperSpecialDashboard?theme=light&orgId=1&refresh=5s`;
         res.locals.URLS = urlStore;
         return next();
       })

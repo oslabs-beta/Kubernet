@@ -1,8 +1,7 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 const signUpRouter = express.Router();
 
 import grafanaController from '../controllers/grafanaController';
-
 import userController from '../controllers/userController';
 import cookieController from '../controllers/cookieController';
 import sessionController from '../controllers/sessionController';
@@ -13,8 +12,8 @@ signUpRouter.post(
   userController.createUser,
   sessionController.startSession,
   cookieController.setSSIDCookie,
-  (req, res, next) => {
-    res.status(201).json(res.locals.URLS);
+  (req: Request, res: Response) => {
+    return res.status(201).json(res.locals.URLS);
   }
 );
 

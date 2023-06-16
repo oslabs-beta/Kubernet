@@ -1,5 +1,4 @@
 import express, { Request, Response, NextFunction } from 'express';
-import path from 'path';
 import mongoose, { ConnectOptions } from 'mongoose';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';

@@ -35,7 +35,6 @@ const userController: UserController = {
         if (!user) {
           res.sendStatus(404);
         } else {
-          // use bcrypt to compare our password to our presaved password
           bcrypt.compare(password, user.password).then((result) => {
             if (!result) {
               res.sendStatus(401);
@@ -57,7 +56,6 @@ const userController: UserController = {
 
   getUrls: (req: Request, res: Response, next: NextFunction) => {
     const id = res.locals.user;
-    // console.log('res.locals.user', res.locals.user);
     User.findById({ _id: id }).then((user) => {
       const { urls } = user;
       res.locals.URLS = urls;

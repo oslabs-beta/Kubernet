@@ -1,13 +1,13 @@
+//  Dependencies
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
+//  Styles
 import styles from '../styles/Home.module.scss';
 
+//  User  Authentication
 function SignupPage(): JSX.Element {
   const navigate = useNavigate();
-
-  const navigateLogin = function (): void {
-    navigate('/loginPage');
-  };
 
   const handleSignup = async (e: any) => {
     e.preventDefault();
@@ -48,7 +48,11 @@ function SignupPage(): JSX.Element {
           <button className={styles.primary}>Create Account</button>
         </form>
 
-        <button className={styles.secondary} onClick={navigateLogin}>
+        <button
+          className={styles.secondary}
+          onClick={() => {
+            navigate('/loginPage');
+          }}>
           <i>already have an account?</i>
         </button>
       </div>

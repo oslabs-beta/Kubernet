@@ -14,7 +14,6 @@ userSchema.pre('save', function (next) {
   bcrypt.hash(this.password, SALT_WORK_FACTOR, (err, hash) => {
     if (err) return next(err);
 
-    // reasing document's password to its hashed version
     this.password = hash;
     return next();
   });

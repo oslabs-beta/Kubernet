@@ -1,4 +1,4 @@
-import express, { Router } from 'express';
+import express, { Router, Request, Response } from 'express';
 const loginRouter: Router = express.Router();
 
 import userController from '../controllers/userController';
@@ -11,7 +11,7 @@ loginRouter.post(
   userController.getUrls,
   sessionController.startSession,
   cookieController.setSSIDCookie,
-  (req, res) => {
+  (req: Request, res: Response) => {
     return res.status(201).json(res.locals.URLS);
   }
 );

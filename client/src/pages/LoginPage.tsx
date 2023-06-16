@@ -1,16 +1,18 @@
+//  Dependencies
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+//  Styles
 import styles from '../styles/Home.module.scss';
+
+//  Child Component
 import WineGlass from '../assets/WineGlass';
 
 function LoginPage(): JSX.Element {
   const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const navigateSignup = function (): void {
-    navigate('/signupPage');
-  };
-
+  //  User authentication 
   const handleLogin = async (e: any): Promise<void> => {
     e.preventDefault();
     try {
@@ -60,7 +62,11 @@ function LoginPage(): JSX.Element {
             <button className={styles.primary}>Login</button>
           </form>
 
-          <button className={styles.secondary} onClick={navigateSignup}>
+          <button
+            className={styles.secondary}
+            onClick={() => {
+              navigate('/signupPage');
+            }}>
             <i>create an account</i>
           </button>
         </div>

@@ -1,13 +1,18 @@
+//  Dependencies
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+//  Styles
 import styles from './Installation.module.scss';
+
+//  Child Component
 import WineGlass from '../assets/WineGlass';
 
 function Installation(): JSX.Element {
   const [loading, setLoading] = useState<boolean>(false);
-  const location: { state?: { notLogged?: boolean } } = useLocation();
   const navigate = useNavigate();
 
+  //  Executes terminal commands that installs prometheus/grafana, updated k8s configmap
   async function installAll(): Promise<void> {
     try {
       setLoading(true);
@@ -15,7 +20,6 @@ function Installation(): JSX.Element {
 
       if (!response.ok) {
         //  Throw new error
-        console.log('Error installing');
       }
 
       setLoading(false);
@@ -26,6 +30,7 @@ function Installation(): JSX.Element {
     }
   }
 
+  //  Executes terminal commands that connects container port to local port
   async function portForward(): Promise<void> {
     try {
       setLoading(true);
@@ -61,18 +66,7 @@ function Installation(): JSX.Element {
 
   if (loading) render = <WineGlass />;
 
-  let added: JSX.Element | undefined;
-
-  if (location?.state?.notLogged) {
-    added = <div>Forgot to log in stupid</div>;
-  }
-
-  return (
-    <React.Fragment>
-      {added}
-      {render}
-    </React.Fragment>
-  );
+  return <React.Fragment>{render}</React.Fragment>;
 }
 
 export default Installation;

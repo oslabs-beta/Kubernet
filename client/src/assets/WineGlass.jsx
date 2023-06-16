@@ -30,7 +30,7 @@ function WineGlass() {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} wineGlass`}data-testid="wineGlass" >
       <img
         src={WineSwirl}
         alt='loading...'

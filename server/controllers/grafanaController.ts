@@ -30,7 +30,6 @@ const grafanaController = {
     })
       .then((data) => data.json())
       .then((data) => {
-        // console.log(data);
         const { uid } = data;
         urlStore.fullDashboard = `http://localhost:3000/d/${uid}/KubernetSuperSpecialDashboard?theme=light&orgId=1&refresh=5s`;
         res.locals.URLS = urlStore;

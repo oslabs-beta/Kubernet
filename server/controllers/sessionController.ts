@@ -7,7 +7,7 @@ const sessionController = {
       await Session.findOneAndUpdate(
         { cookieId: res.locals.user },
         { createdAt: Date.now() },
-        { upsert: true, setDefaultsOnInsert: true } // upsert: true checks creates a new document if document is not found. seDefault makes sure default values in schema are applied
+        { upsert: true, setDefaultsOnInsert: true }
       );
       return next();
     } catch (err: any) {

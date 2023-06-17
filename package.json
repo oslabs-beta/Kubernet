@@ -72,8 +72,5 @@
     "webpack-cli": "^5.1.1",
     "webpack-dev-server": "^4.15.0",
     "whatwg-fetch": "^3.6.2"
-  },
-  "msw": {
-    "workerDirectory": "public"
   }
 }

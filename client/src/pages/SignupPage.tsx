@@ -10,7 +10,7 @@ function SignupPage(): JSX.Element {
     navigate('/loginPage');
   };
 
-  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSignup = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
 
     try {

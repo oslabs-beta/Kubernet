@@ -1,13 +1,6 @@
 import React from 'react';
+import { render, screen, waitFor } from '@testing-library/react';
 import {
-  render,
-  screen,
-  fireEvent,
-  waitFor,
-  waitForElementToBeRemoved,
-} from '@testing-library/react';
-import {
-  BrowserRouter as Router,
   createRoutesFromElements,
   Route,
   createMemoryRouter,
@@ -15,6 +8,7 @@ import {
 } from 'react-router-dom';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
+import { server } from '../mocks/server';
 
 //imported pages
 import LoginPage from '../client/src/pages/LoginPage';
@@ -32,6 +26,16 @@ const theRoutes = createRoutesFromElements(
 );
 
 describe('Signup Page', () => {
+  // Establish API mocking before all tests.
+  beforeAll(() => server.listen());
+
+  // Reset any request handlers that we may add during the tests,
+  // so they don't affect other tests.
+  afterEach(() => server.resetHandlers());
+
+  // Clean up after the tests are finished.
+  afterAll(() => server.close());
+
   describe('Rendering', () => {
     beforeEach(() => {
       const router = createMemoryRouter(theRoutes, {
@@ -57,7 +61,7 @@ describe('Signup Page', () => {
     });
   });
 
-  describe('Behavior', () => {
+  describe('User Actions', () => {
     test('Clicking "already have an account?" should navigate to login page', async () => {
       const router = createMemoryRouter(theRoutes, {
         initialEntries: ['/signupPage'],
@@ -65,28 +69,34 @@ describe('Signup Page', () => {
       render(<RouterProvider router={router} />);
       expect(screen.queryByText('Login')).not.toBeInTheDocument();
       await userEvent.click(screen.getByText('already have an account?'));
-      expect(screen.queryByText('Login')).toBeInTheDocument();
+      expect(screen.getByText('Login')).toBeInTheDocument();
     });
 
-    // test('Should enter username and password and click on login button', async () => {
-    //   // const user = userEvent.setup();
-    //   const router = createMemoryRouter(theRoutes, {
-    //     initialEntries: ['/signupPage'],
-    //   });
-    //   render(<RouterProvider router={router} />);
+    test('Should enter username and password and click on login button', async () => {
+      const router = createMemoryRouter(theRoutes, {
+        initialEntries: ['/signupPage'],
+      });
+      render(<RouterProvider router={router} />);
 
-    //   const usernameInput = screen.getByPlaceholderText('Username');
-    //   const passwordInput = screen.getByPlaceholderText('Password');
-    //   const createAccountButton = screen.getByText('Create Account');
+      const usernameInput = screen.getByPlaceholderText('Username');
+      const passwordInput = screen.getByPlaceholderText('Password');
+      const createAccountButton = screen.getByRole('button', {
+        name: 'Create Account',
+      });
 
-    //   await userEvent.type(usernameInput, 'testUser');
-    //   expect(usernameInput).toHaveValue('testUser');
-    //   await userEvent.type(passwordInput, 'testPassword');
-    //   expect(passwordInput).toHaveValue('testPassword');
-    //   expect(screen.queryByTestId('iframe')).not.toBeInTheDocument();
-    //   await userEvent.click(createAccountButton);
-    //   // await screen.findByRole('iframe');
-    //   expect(screen.getByRole('iframe')).toBeInTheDocument();
-    // });
+      await userEvent.type(usernameInput, 'james');
+      await userEvent.type(passwordInput, 'james123');
+
+      expect(usernameInput.value).toBe('james');
+      expect(passwordInput.value).toBe('james123');
+
+      expect(screen.queryByTestId('myIframe')).not.toBeInTheDocument();
+      await userEvent.click(createAccountButton);
+      // await screen.findByRole('iframe');
+      waitFor(async () => {
+        await screen.findByTitle('myIframe', {});
+        expect(screen.findByTitle('myIframe', {})).toBeInTheDocument();
+      });
+    });
   });
 });

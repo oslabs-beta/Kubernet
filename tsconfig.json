@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "noEmit": false,
+    "resolveJsonModule": true
+  },
+  "include": ["client/**/*", "server/**/*"],
+  "exclude": ["dist", "node_modules"]
+}

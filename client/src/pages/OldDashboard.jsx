@@ -18,20 +18,15 @@ function Dashboard() {
         <iframe
           src={url}
           key={graph}
-          width='450'
-          height='200'
+          width= '95%'
+          height='100%'
           frameborder='0'
         ></iframe>
       );
     }
     return (
-      <div className={styles.container} data-testid="myIframe">
-        <div className={styles.numericMetrics}>
-          {[iframeArray[0]].concat(iframeArray[2])}
-        </div>
-        <div className={styles.chartMetrics}>
-          {[iframeArray[1]].concat(iframeArray[3])}
-        </div>
+      <div className={styles.container}>
+        {iframeArray[0]}
       </div>
     );
   }

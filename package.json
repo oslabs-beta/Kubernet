@@ -7,7 +7,10 @@
     "moduleNameMapper": {
       "\\.(css|scss|gif|png|jpg|jpeg|svg)$": "identity-obj-proxy"
     },
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "./test-setup.js"
+    ]
   },
   "scripts": {
     "test": "jest",
@@ -69,5 +72,8 @@
     "webpack-cli": "^5.1.1",
     "webpack-dev-server": "^4.15.0",
     "whatwg-fetch": "^3.6.2"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

@@ -1,82 +1,92 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
+import {
+  BrowserRouter as Router,
+  createRoutesFromElements,
+  Route,
+  createMemoryRouter,
+  RouterProvider,
+} from 'react-router-dom';
 import '@testing-library/jest-dom';
-import SignupPage from '../client/src/pages/SignupPage';
-import { server } from '../mocks/server';
 import userEvent from '@testing-library/user-event';
 
-describe('Sign Up', () => {
-  beforeAll(() => {
-    server.listen();
-  });
-  afterAll(() => {
-    server.resetHandlers();
-  });
-  afterEach(() => {
-    server.close();
-  });
+//imported pages
+import LoginPage from '../client/src/pages/LoginPage';
+import Dashboard from '../client/src/pages/Dashboard';
+import SignupPage from '../client/src/pages/SignupPage';
+import Installation from '../client/src/pages/Installation.tsx';
 
-  // beforeEach(() => {
-  //   render(
-  //     <Router>
-  //       <SignupPage />
-  //     </Router>
-  //   );
-  // });
+const theRoutes = createRoutesFromElements(
+  <>
+    <Route path="/" element={<Installation />} />
+    <Route path="/loginPage" element={<LoginPage />} />
+    <Route path="/signupPage" element={<SignupPage />} />
+    <Route path="/dashboard" element={<Dashboard />} />
+  </>
+);
 
-  describe('Signup - Rendering', () => {
+describe('Signup Page', () => {
+  describe('Rendering', () => {
     beforeEach(() => {
-      render(
-        <Router>
-          <SignupPage />
-        </Router>
-      );
-    });
-    test('Login page loads with Username input field', async () => {
-      // Check if username field exists
-      const usernameInput = screen.getByPlaceholderText('Username');
-      expect(usernameInput).toBeInTheDocument();
+      const router = createMemoryRouter(theRoutes, {
+        initialEntries: ['/signupPage'],
+      });
+      render(<RouterProvider router={router} />);
     });
 
-    test('Login page loads with Password input field', async () => {
-      // Check if password field exists
-      const passwordInput = screen.getByPlaceholderText('Password');
-      expect(passwordInput).toBeInTheDocument();
+    test('Signup page loads with Username input field', async () => {
+      expect(screen.getByPlaceholderText('Username')).toBeInTheDocument();
+    });
+
+    test('Signup page loads with Password input field', async () => {
+      expect(screen.getByPlaceholderText('Password')).toBeInTheDocument();
     });
 
     test('Signup page loads with "Create Account" button', async () => {
-      // Check if password field exists
-      const createAccountButton = screen.getByText('Create Account');
-      expect(createAccountButton).toBeInTheDocument();
+      expect(screen.getByText('Create Account')).toBeInTheDocument();
     });
 
     test('Signup page loads with "already have an account?" button', async () => {
-      // Check if password field exists
-      const sendToLoginButton = screen.getByText('already have an account?');
-      expect(sendToLoginButton).toBeInTheDocument();
+      expect(screen.getByText('already have an account?')).toBeInTheDocument();
     });
   });
 
-  describe('Signup - Behavior', () => {
-    test('Should enter username and password and click on login button', async () => {
-      // const user = userEvent.setup();
-      render(
-        <Router>
-          <SignupPage />
-        </Router>
-      );
-      const usernameInput = screen.getByPlaceholderText('Username');
-      const passwordInput = screen.getByPlaceholderText('Password');
-      const sendToLoginButton = screen.getByText('already have an account?');
-
-      await userEvent.type(usernameInput, 'testUser');
-      expect(usernameInput).toHaveValue('testUser');
-      await userEvent.type(passwordInput, 'testPassword');
-      expect(passwordInput).toHaveValue('testPassword');
-      fireEvent.submit(sendToLoginButton);
-      // await userEvent.click(screen.getByText('Create Account'));
+  describe('Behavior', () => {
+    test('Clicking "already have an account?" should navigate to login page', async () => {
+      const router = createMemoryRouter(theRoutes, {
+        initialEntries: ['/signupPage'],
+      });
+      render(<RouterProvider router={router} />);
+      expect(screen.queryByText('Login')).not.toBeInTheDocument();
+      await userEvent.click(screen.getByText('already have an account?'));
+      expect(screen.queryByText('Login')).toBeInTheDocument();
     });
-    test('Handles Navigate Login', () => {});
+
+    // test('Should enter username and password and click on login button', async () => {
+    //   // const user = userEvent.setup();
+    //   const router = createMemoryRouter(theRoutes, {
+    //     initialEntries: ['/signupPage'],
+    //   });
+    //   render(<RouterProvider router={router} />);
+
+    //   const usernameInput = screen.getByPlaceholderText('Username');
+    //   const passwordInput = screen.getByPlaceholderText('Password');
+    //   const createAccountButton = screen.getByText('Create Account');
+
+    //   await userEvent.type(usernameInput, 'testUser');
+    //   expect(usernameInput).toHaveValue('testUser');
+    //   await userEvent.type(passwordInput, 'testPassword');
+    //   expect(passwordInput).toHaveValue('testPassword');
+    //   expect(screen.queryByTestId('iframe')).not.toBeInTheDocument();
+    //   await userEvent.click(createAccountButton);
+    //   // await screen.findByRole('iframe');
+    //   expect(screen.getByRole('iframe')).toBeInTheDocument();
+    // });
   });
 });

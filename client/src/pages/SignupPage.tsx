@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/Home.module.scss';
 
+
 function SignupPage(): JSX.Element {
   const navigate = useNavigate();
 
@@ -9,12 +10,15 @@ function SignupPage(): JSX.Element {
     navigate('/loginPage');
   };
 
-  const handleSignup = async (e: any) => {
+  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
-      const username: string = e.target[0].value;
-      const password: string = e.target[1].value;
+      const usernameInput = e.currentTarget.elements[0] as HTMLInputElement;
+      const passwordInput = e.currentTarget.elements[1] as HTMLInputElement;
+
+      const username: string = usernameInput.value;
+      const password: string = passwordInput.value;
 
       const response = await fetch('http://localhost:5050/signup', {
         method: 'post',

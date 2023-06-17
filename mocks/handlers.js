@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 
-export const handlers = [
-  rest.post('/signup', (req, res, ctx) => {
-    return res(ctx.status(201).json({ fullDashboard: 'dashboardURL' }))
-  })
-]
+export const routeHandlers = [
+  rest.post('http://localhost:5050/signup', (req, res, ctx) =>
+    res(ctx.status(201), json({}))
+  ),
+];

@@ -17,8 +17,12 @@ export const handlers = [
   }),
 
   rest.post('http://localhost:5050/login', (req, res, ctx) => {
-    return res(ctx.json([{
-      status: 200
-    }]))
+    return res(
+      ctx.status(201),
+      ctx.json({
+        username: 'james',
+        password: 'james123',
+      })
+    )
   })
 ];

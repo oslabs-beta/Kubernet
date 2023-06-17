@@ -8,7 +8,9 @@
       "\\.(css|scss|gif|png|jpg|jpeg|svg)$": "identity-obj-proxy"
     },
     "testEnvironment": "jsdom",
-    "testEnvironmentOptions": { "resources": "usable" },
+    "testEnvironmentOptions": {
+      "resources": "usable"
+    },
     "setupFilesAfterEnv": [
       "./test-setup.js"
     ]
@@ -38,22 +40,22 @@
     "react-redux": "^8.0.5",
     "react-router": "^6.11.2",
     "react-router-dom": "^6.11.2",
-    "redux": "^4.2.1",
-    "typescript": "^5.1.3"
+    "redux": "^4.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",
     "@babel/preset-env": "^7.22.4",
     "@babel/preset-react": "^7.22.3",
+    "@babel/preset-typescript": "^7.22.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
-    "babel-jest": "^29.5.0",
     "@types/bcryptjs": "^2.4.2",
     "@types/cookie-parser": "^1.4.3",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/node": "^20.3.1",
+    "babel-jest": "^29.5.0",
     "babel-loader": "^9.1.2",
     "concurrently": "^8.0.1",
     "cross-env": "^7.0.3",
@@ -74,9 +76,11 @@
     "supertest": "^6.3.3",
     "ts-loader": "^9.4.3",
     "ts-node": "^10.9.1",
+    "typescript": "^5.1.3",
     "typings-for-css-modules-loader": "^1.7.0",
     "webpack": "^5.84.1",
     "webpack-cli": "^5.1.1",
-    "webpack-dev-server": "^4.15.0"
+    "webpack-dev-server": "^4.15.0",
+    "whatwg-fetch": "^3.6.2"
   }
 }

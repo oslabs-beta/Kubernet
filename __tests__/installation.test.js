@@ -14,7 +14,8 @@ import LoginPage from '../client/src/pages/LoginPage';
 import Dashboard from '../client/src/pages/Dashboard';
 import SignupPage from '../client/src/pages/SignupPage';
 import Installation from '../client/src/pages/Installation';
-jest.mock('./WineSwirl.gif', () => 'path/to/mock/image.png');
+jest.mock('./WineSwirl.gif', () => './__mocks__/WineSwirl.gif');
+
 
 beforeAll(() => {
   server.listen();
@@ -40,7 +41,7 @@ const appRoutes = createRoutesFromElements(
 );
 
 
-describe(Installation, () => {
+describe('Installation', () => {
   describe('Rendering', () => {
     beforeEach(() => {
       const memoryRouter = createMemoryRouter(appRoutes, {initialEntries: ['/']});

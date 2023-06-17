@@ -5,16 +5,13 @@ import '@testing-library/jest-dom/extend-expect';
 import { BrowserRouter as Router, createMemoryRouter, createRoutesFromElements, Route, Routes, RouterProvider } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 
-
-
 import { server } from '../mocks/server';
 
-// import our components
 import LoginPage from '../client/src/pages/LoginPage';
 import Dashboard from '../client/src/pages/Dashboard';
 import SignupPage from '../client/src/pages/SignupPage';
 import Installation from '../client/src/pages/Installation';
-jest.mock('./WineSwirl.gif', () => 'path/to/mock/image.png');
+jest.mock('./WineSwirl.gif', () => './__mocks__/WineSwirl.gif');
 
 beforeAll(() => {
   server.listen();
@@ -40,7 +37,7 @@ const appRoutes = createRoutesFromElements(
 
 
 
-describe(LoginPage, () => {
+describe('LoginPage', () => {
 
   describe('Rendering', () => {
     beforeEach(() => {
@@ -78,23 +75,24 @@ describe(LoginPage, () => {
       )
     })
     test('User types in login details and is navigated to dashboard',async () => {
-      const loginBtn = screen.getByRole('button', {name: 'Login'})
+      const loginBtn = screen.getByRole('button', {name: 'Login'});
       const userNameInput = screen.getByPlaceholderText('Username');
       const passwordInput = screen.getByPlaceholderText('Password');
    
       await userEvent.type(userNameInput, 'james');
       await userEvent.type(passwordInput, 'james123');
       
-      
       expect(userNameInput.value).toBe('james');
       expect(passwordInput.value).toBe('james123');
 
       await userEvent.click(loginBtn);
-      //await waitFor(() => {screen.findByText('')});
+
+      waitFor(async() => {
+        await screen.findByTitle('myIframe', {})
+        expect(screen.findByTitle('myIframe')).toBeInTheDocument();
+      })
+ 
       
-      
-      screen.debug
-      expect(screen.queryByTestId('myIframe')).toBeInTheDocument();
     })
 
   

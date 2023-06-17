@@ -18,7 +18,7 @@ function Dashboard(): JSX.Element {
 
   if (data) {
     for (const [graph, url] of Object.entries(data)) {
-      iframeArray.push(<iframe src={url} key={graph}></iframe>);
+      iframeArray.push(<iframe title='myIframe' src={url} key={graph}></iframe>);
     }
     return <div className={styles.container}>{iframeArray[0]}</div>;
   }

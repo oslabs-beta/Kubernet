@@ -13,12 +13,15 @@ function LoginPage(): JSX.Element {
   const navigate = useNavigate();
 
   //  User authentication 
-  const handleLogin = async (e: any): Promise<void> => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement> ): Promise<void> => {
     e.preventDefault();
     try {
       setLoading(true);
-      const username: string = e.target[0].value;
-      const password: string = e.target[1].value;
+      const usernameInput = e.currentTarget.elements[0] as HTMLInputElement;
+      const passwordInput = e.currentTarget.elements[1] as HTMLInputElement;
+
+      const username: string = usernameInput.value;
+      const password: string = passwordInput.value;
 
       const response = await fetch('http://localhost:5050/login', {
         method: 'post',

@@ -7,7 +7,11 @@
     "moduleNameMapper": {
       "\\.(css|scss|gif|png|jpg|jpeg|svg)$": "identity-obj-proxy"
     },
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "testEnvironmentOptions": { "resources": "usable" },
+    "setupFilesAfterEnv": [
+      "./test-setup.js"
+    ]
   },
   "scripts": {
     "test": "jest --verbose",
@@ -21,6 +25,7 @@
   "license": "ISC",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "@tanstack/react-query": "^4.29.14",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -54,6 +59,7 @@
     "jest-environment-jsdom": "^29.5.0",
     "mini-css-extract-plugin": "^2.7.6",
     "msw": "^1.2.2",
+    "node-fetch": "^3.3.1",
     "nodemon": "^2.0.22",
     "redux-devtools-extension": "^2.13.9",
     "sass": "^1.62.1",

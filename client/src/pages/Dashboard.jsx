@@ -25,7 +25,7 @@ function Dashboard() {
       );
     }
     return (
-      <div className={styles.container}>
+      <div className={styles.container} data-testid="myIframe">
         <div className={styles.numericMetrics}>
           {[iframeArray[0]].concat(iframeArray[2])}
         </div>

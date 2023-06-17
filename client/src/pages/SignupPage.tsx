@@ -1,5 +1,8 @@
+//  Dependencies
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
+//  Styles
 import styles from '../styles/Home.module.scss';
 
 
@@ -10,7 +13,7 @@ function SignupPage(): JSX.Element {
     navigate('/loginPage');
   };
 
-  const handleSignup = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const handleSignup = async (e: any) => {
     e.preventDefault();
 
     try {
@@ -52,7 +55,11 @@ function SignupPage(): JSX.Element {
           <button className={styles.primary}>Create Account</button>
         </form>
 
-        <button className={styles.secondary} onClick={navigateLogin}>
+        <button
+          className={styles.secondary}
+          onClick={() => {
+            navigate('/loginPage');
+          }}>
           <i>already have an account?</i>
         </button>
       </div>

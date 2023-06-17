@@ -1,6 +1,10 @@
+//  Dependencies
 import React, { useState, useEffect } from 'react';
 
+//  Styles
 import styles from './WineGlass.module.scss';
+
+//  Assets
 import WineSwirl from './WineSwirl.gif';
 
 function WineGlass(): JSX.Element {
@@ -20,6 +24,7 @@ function WineGlass(): JSX.Element {
     messageArray[Math.floor(Math.random() * messageArray.length)]
   );
 
+    //  Rotate through array of loading messages
   useEffect(() => {
     const interval = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * messageArray.length);

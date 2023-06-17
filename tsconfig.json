@@ -5,8 +5,8 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
-    // "allowImportingTsExtensions": true,
-    "noEmit": false
+    "noEmit": false,
+    "resolveJsonModule": true
   },
   "include": ["client/**/*", "server/**/*"],
   "exclude": ["dist", "node_modules"]

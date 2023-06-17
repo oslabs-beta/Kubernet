@@ -1,5 +1,8 @@
+//  Dependencies
 import React, { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+
+//  Styles
 import styles from '../styles/Dashboard.module.scss';
 
 function Dashboard(): JSX.Element {
@@ -7,9 +10,10 @@ function Dashboard(): JSX.Element {
   const data: { [key: string]: string } = location?.state?.data;
   const iframeArray: JSX.Element[] = [];
   const navigate = useNavigate();
-
+  
+  //  Front end authentication
   if (!data) {
-    useEffect(() => navigate('/', { state: { notLogged: true } }), []);
+    useEffect(() => navigate('/'), []);
   }
 
   if (data) {
@@ -22,11 +26,7 @@ function Dashboard(): JSX.Element {
         ></iframe>
       );
     }
-    return (
-      <div className={styles.container}>
-        {iframeArray[0]}
-      </div>
-    );
+    return <div className={styles.container}>{iframeArray[0]}</div>;
   }
-} //  Notes
+}
 export default Dashboard;

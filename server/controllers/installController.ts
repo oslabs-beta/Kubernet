@@ -93,7 +93,7 @@ const installController: InstallController = {
 
     //  Moves to next middleware if port forward was successful
     port.stdout.on('data', (data) => {
-      console.log('Success! Grafana can now be access on localhost:3000');
+      console.log('Success! Grafana can now be accessed on localhost:3000');
     });
 
     port.stderr.on('data', (data) => {

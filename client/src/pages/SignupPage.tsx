@@ -9,10 +9,6 @@ import styles from '../styles/Home.module.scss';
 function SignupPage(): JSX.Element {
   const navigate = useNavigate();
 
-  const navigateLogin = function (): void {
-    navigate('/loginPage');
-  };
-
   const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 

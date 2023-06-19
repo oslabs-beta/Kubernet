@@ -10,8 +10,6 @@ const port: number = 5050;
 
 const app = express();
 
-import installController from './controllers/installController';
-
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
@@ -19,6 +17,7 @@ app.use(cors());
 import loginRouter from './routes/loginRoute';
 import signUpRouter from './routes/signUpRoute';
 import deleteRouter from './routes/deleteRoute';
+import installController from './controllers/installController';
 
 const mongoURI = process.env.MONGO_URI;
 
@@ -32,23 +31,8 @@ app.use('/login', loginRouter);
 app.use('/signup', signUpRouter);
 app.use('/delete', deleteRouter);
 
-app.use(
-  '/install',
-  installController.promInstall,
-  installController.grafEmbed,
-  installController.portForward,
-  (req: Request, res: Response) => {
-    return res.status(200).json('End');
-  }
-);
+app.get('/killPort', installController.killPort,  (req,res) => res.sendStatus(200));
 
-app.use(
-  '/portforward',
-  installController.portForward,
-  (req: Request, res: Response) => {
-    return res.status(200).json('Port-Forward Successful');
-  }
-);
 
 app.use((req: Request, res: Response) =>
   res.status(404).send('Page Not Found')

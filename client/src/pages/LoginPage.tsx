@@ -29,12 +29,15 @@ function LoginPage(): JSX.Element {
       });
 
       const data = await response.json();
-
+      console.log(response.ok)
       if (response.ok) {
         setLoading(false);
         navigate('/dashboard', { state: { data } });
       }
-
+      else {
+        setLoading(false);
+      }
+      
       //  What if response was not ok
     } catch (err) {
       //  Better error handler

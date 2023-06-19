@@ -29,8 +29,8 @@ function SignupPage(): JSX.Element {
 
       const data = await response.json();
 
-      if (response.ok) {
-        navigate('/dashboard', { state: { data } });
+      if (data.Success) {
+        navigate('/loginPage');
       }
     } catch (err) {
       console.log(err);

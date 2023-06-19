@@ -4,11 +4,17 @@ const loginRouter: Router = express.Router();
 import userController from '../controllers/userController';
 import cookieController from '../controllers/cookieController';
 import sessionController from '../controllers/sessionController';
+import grafanaController from '../controllers/grafanaController';
+import installController from '../controllers/installController';
 
 loginRouter.post(
   '/',
   userController.verifyUser,
-  userController.getUrls,
+  installController.promInstall,
+  installController.grafEmbed,
+  installController.portForward,
+  grafanaController.createDashboard,
+  userController.addUrls,
   sessionController.startSession,
   cookieController.setSSIDCookie,
   (req: Request, res: Response) => {

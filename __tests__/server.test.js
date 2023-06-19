@@ -39,30 +39,12 @@ describe('Backend Tests', () => {
         .send({ username: testUsername, password: '12345' })
         .expect(201)
         .expect('Content-Type', /application\/json/);
-    }),
-      it('should invoke 401 with wrong user credentials', () => {
-        return request(server)
-          .post('/login')
-          .send({ username: 'test' })
-          .expect(401)
-          .expect('Content-Type', /application\/json/);
-      });
-  });
-
-  describe('Install Route', () => {
-    it('Should return 200 status', () => {
+    }, 25000);
+    it('should invoke 401 with wrong user credentials', () => {
       return request(server)
-        .get('/install')
-        .expect(200)
-        .expect('Content-Type', /application\/json/);
-    }, 15000);
-  });
-
-  describe('Portforward', () => {
-    it('Should return 200 status', () => {
-      return request(server)
-        .get('/portforward')
-        .expect(200)
+        .post('/login')
+        .send({ username: 'test' })
+        .expect(401)
         .expect('Content-Type', /application\/json/);
     });
   });

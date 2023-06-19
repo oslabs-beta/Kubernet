@@ -18,6 +18,7 @@ app.use(cors());
 
 import loginRouter from './routes/loginRoute';
 import signUpRouter from './routes/signUpRoute';
+import deleteRouter from './routes/deleteRoute';
 
 const mongoURI = process.env.MONGO_URI;
 
@@ -29,6 +30,7 @@ mongoose.connect(mongoURI, {
 // redirect to routes
 app.use('/login', loginRouter);
 app.use('/signup', signUpRouter);
+app.use('/delete', deleteRouter);
 
 app.use(
   '/install',
@@ -77,3 +79,5 @@ app.use(
 app.listen(port, () => {
   console.log(`Listening on port ${port}...`);
 });
+
+export default app;

@@ -5,6 +5,7 @@ import bcrypt from 'bcryptjs';
 interface UserController {
   createUser: (req: Request, res: Response, next: NextFunction) => void;
   verifyUser: (req: Request, res: Response, next: NextFunction) => void;
+  deleteUser: (req: Request, res: Response, next: NextFunction) => void;
   getUrls: (req: Request, res: Response, next: NextFunction) => void;
 }
 
@@ -33,11 +34,17 @@ const userController: UserController = {
     User.findOne({ username })
       .then((user) => {
         if (!user) {
-          res.sendStatus(404);
+          return next({  log: `error`,
+          status: 401,
+          message: { err: `error occured in verifUser middleware function` },
+        })
         } else {
           bcrypt.compare(password, user.password).then((result) => {
             if (!result) {
-              res.sendStatus(401);
+              return next({  log: `error`,
+              status: 401,
+              message: { err: `error occured in verifUser middleware function` },
+            })
             } else {
               res.locals.user = user.id;
               return next();
@@ -53,7 +60,17 @@ const userController: UserController = {
         });
       });
   },
+  deleteUser: (req: Request, res: Response, next: NextFunction) => {
+    const id = res.locals.user;
+    User.findOneAndDelete({ _id: id })
+      .then(user => next())
+      .catch(err => next({
+        log: `error ${err}`,
+        status: 500,
+        message: { err: `error occured in deleteUser middleware function` },
+      }));
 
+  },
   getUrls: (req: Request, res: Response, next: NextFunction) => {
     const id = res.locals.user;
     User.findById({ _id: id }).then((user) => {

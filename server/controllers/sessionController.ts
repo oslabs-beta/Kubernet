@@ -5,7 +5,7 @@ const sessionController = {
   startSession: async (req: Request, res: Response, next: NextFunction) => {
     try {
       await Session.findOneAndUpdate(
-        { cookieId: res.locals.user },
+        { cookieId: res.locals.user.id },
         { createdAt: Date.now() },
         { upsert: true, setDefaultsOnInsert: true }
       );

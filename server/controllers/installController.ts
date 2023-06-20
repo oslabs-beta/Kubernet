@@ -5,6 +5,7 @@ interface InstallController {
   promInstall: (req: Request, res: Response, next: NextFunction) => void;
   grafEmbed: (req: Request, res: Response, next: NextFunction) => void;
   portForward: (req: Request, res: Response, next: NextFunction) => void;
+  killPort: (req: Request, res: Response, next: NextFunction) => void;
 }
 
 const installController: InstallController = {
@@ -12,6 +13,7 @@ const installController: InstallController = {
    * Install Prometheus
    */
   promInstall: (req: Request, res: Response, next: NextFunction) => {
+    if (res.locals.URLS) return next();
     console.log('Initializing prometheus!');
 
     //  Adding prometheus repo to helm
@@ -35,6 +37,7 @@ const installController: InstallController = {
    * Embed Grafana
    */
   grafEmbed: (req: Request, res: Response, next: NextFunction) => {
+    if (res.locals.URLS) return next();
     console.log('Embedding grafana');
 
     //  Executing kubectl get pods
@@ -93,7 +96,7 @@ const installController: InstallController = {
 
     //  Moves to next middleware if port forward was successful
     port.stdout.on('data', (data) => {
-      console.log('Success! Grafana can now be access on localhost:3000');
+      console.log('Success! Grafana can now be accessed on localhost:3000');
     });
 
     port.stderr.on('data', (data) => {
@@ -107,8 +110,14 @@ const installController: InstallController = {
       });
     });
 
-    return next();
+    setTimeout(() => {
+      return next()}, 6000);
   },
+
+  killPort: (req: Request, res: Response, next: NextFunction) => {
+    spawn('pkill -f "port-forward"', { stdio: 'inherit', shell: true });
+    return next();
+  }
 };
 
 export default installController;

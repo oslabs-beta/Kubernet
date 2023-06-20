@@ -9,6 +9,7 @@ function Installation() {
   const navigate = useNavigate();
 
   async function installAll() {
+    
     try {
       setLoading(true);
       const response = await fetch('http://localhost:5050/install');

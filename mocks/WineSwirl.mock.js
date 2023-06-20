@@ -1,0 +1,1 @@
+module.exports = '/Users/praiseemmanuel/codesmith/OSP/Team-Kubernetes/__tests__/__mocks__/WineSwirl.gif'

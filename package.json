@@ -8,12 +8,15 @@
       "\\.(css|scss|gif|png|jpg|jpeg|svg)$": "identity-obj-proxy"
     },
     "testEnvironment": "jsdom",
+    "testEnvironmentOptions": {
+      "resources": "usable"
+    },
     "setupFilesAfterEnv": [
       "./test-setup.js"
     ]
   },
   "scripts": {
-    "test": "jest test",
+    "test": "jest test --verbose",
     "frontend": "NODE_ENV=development webpack-dev-server --open --hot --progress --color",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open --hot --progress --color \" \"NODE_ENV=development nodemon ./server/server.ts\"",
     "build": "NODE_ENV=production webpack",
@@ -54,6 +57,7 @@
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.2",
     "@types/node": "^20.3.1",
+    "babel-jest": "^29.5.0",
     "@types/supertest": "^2.0.12",
     "babel-loader": "^9.1.2",
     "concurrently": "^8.0.1",

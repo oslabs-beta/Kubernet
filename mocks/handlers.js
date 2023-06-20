@@ -16,6 +16,18 @@ export const handlers = [
     }]))
   }),
 
+  rest.get('http://localhost:5050/killPort', (req, res, ctx) => {
+    return res(ctx.json([{
+      status: 200
+    }]))
+  }),
+
+  rest.get('http://localhost/james', (req, res, ctx) => {
+    return res(ctx.json([{
+      status: 200
+    }]))
+  }),
+
   rest.post('http://localhost:5050/signup', (req, res, ctx) => {
     return res(
       ctx.status(201),

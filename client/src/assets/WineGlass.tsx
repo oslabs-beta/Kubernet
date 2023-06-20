@@ -35,7 +35,7 @@ function WineGlass(): JSX.Element {
   }, []);
 
   return (
-    <div className={`${styles.container} wineGlass`}data-testid="wineGlass" >
+    <div className={`${styles.container} wineGlass`}>
       <img
         src={WineSwirl}
         alt='loading...'

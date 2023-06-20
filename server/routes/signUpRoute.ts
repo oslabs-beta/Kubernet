@@ -8,12 +8,9 @@ import sessionController from '../controllers/sessionController';
 
 signUpRouter.post(
   '/',
-  grafanaController.getPanels,
   userController.createUser,
-  sessionController.startSession,
-  cookieController.setSSIDCookie,
   (req: Request, res: Response) => {
-    return res.status(201).json(res.locals.URLS);
+    return res.status(201).json({ Success: 'User Created!'});
   }
 );
 

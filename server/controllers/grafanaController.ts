@@ -4,7 +4,9 @@ import fullDashboard from '../panels/KubernetFullDash.json';
 const urlStore: { fullDashboard?: string } = {};
 
 const grafanaController = {
-  getPanels: (req: Request, res: Response, next: NextFunction) => {
+  createDashboard: (req: Request, res: Response, next: NextFunction) => {
+    res.locals.createdNewDashboard = false;
+    if (res.locals.URLS) return next();
     fetch('http://localhost:3000/api/dashboards/db', {
       method: 'POST',
       headers: {
@@ -33,6 +35,7 @@ const grafanaController = {
         const { uid } = data;
         urlStore.fullDashboard = `http://localhost:3000/d/${uid}/KubernetSuperSpecialDashboard?theme=light&orgId=1&refresh=5s`;
         res.locals.URLS = urlStore;
+        res.locals.createdNewDashboard = true;
         return next();
       })
       .catch((err) => {

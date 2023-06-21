@@ -10,7 +10,6 @@ function Installation(): JSX.Element {
 
   const killPort = async () => {
     await fetch('http://localhost:5050/killPort')
-      .then(res => console.log(res));
   }
 
   let render: JSX.Element = (

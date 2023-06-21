@@ -17,7 +17,7 @@ const grafanaController = {
         dashboard: {
           id: null,
           uid: null,
-          title: `KubernetSuperSpecialDashboard`,
+          title: `Kubernét`,
           timezone: 'browser',
           tags: ['templated'],
           schemaVersion: 16,

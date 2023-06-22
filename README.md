@@ -15,7 +15,7 @@
 ![Express](https://img.shields.io/badge/express-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![Mongo](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
-[![Medium Badge](https://img.shields.io/badge/@username-black?style=flat&logo=medium&logoColor=white&link=https://medium.com/@username)](https://medium.com/@username)
+[![Medium Badge](https://img.shields.io/badge/Kubernét-black?style=flat&logo=medium&logoColor=white&link=https://medium.com/@teamkubernet)](https://medium.com/@teamkubernet)
 ![GitHub Repo stars](https://img.shields.io/github/stars/oslabs-beta/Kubernet)
 <img src='https://img.shields.io/badge/Version_1.0-8A2BE2' />
 
@@ -23,7 +23,7 @@
 
 <div align='center'>
 
-• [Introduction](#introduction)• [Getting started](#getting-started) • [Installation](#installation) • [Considerations](#considerations) • [Meet The Team](#meet-the-team) •
+• [Introduction](#introduction)• [Getting started](#getting-started) • [Installation](#installation) • [Considerations](#considerations) • [Open Source](#open-source) •[Meet The Team](#meet-the-team) •
 
 </div>
 
@@ -78,6 +78,47 @@ The application requires several default port configurations, so be sure not to 
 | 8080 |  Kubernét   |
 | 3000 |   Grafana   |
 | 5050 |   Express   |
+
+## Open Source
+
+As this is a free open source product, we would love having your feedback through opening issues, and contributions. If you would like to contribute to this open source project,
+
+1. Clone our repo and create a new branch:
+
+```bash
+git checkout -b <Feature Branch Name>
+```
+
+2. Make changes, and run test
+
+```bash
+npm run test
+```
+
+You should see this:
+
+<img src="./public/readme/tests.png" width="450px">
+
+3. Submit a pull request with clear descriptions of changes made. One of our team members will look at it as soon as possible to approve your PR.
+
+| Features                               | Status |
+| :------------------------------------- | :----: |
+| Automatic Prometheus Integration       |   ✅   |
+| Automatic Grafana Integration          |   ✅   |
+| Custom Grafana .yaml installation      |   ✅   |
+| Custom Dashboard Creation              |   ✅   |
+| User Data Encryption                   |   ✅   |
+| Implement RTL + Jest front-end testing |   ✅   |
+| Implement Supertest back-end testing   |   ✅   |
+| Full Typescript conversion             |   ✅   |
+| Standalone application                 |   ⏳   |
+| Alerting System                        |   🙏🏻   |
+| Individual node health visualizer      |   🙏🏻   |
+| Cluster visualization                  |   🙏🏻   |
+
+- ✅ = **Ready**
+- ⏳ = In progress
+- 🙏🏻 = _Looking for contributors_
 
 ## Meet The Team
 

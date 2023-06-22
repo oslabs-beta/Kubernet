@@ -105,6 +105,8 @@ You should see this:
 
 <img src="./public/readme/tests.png" width="450px">
 
+Be sure that your server is running at the time in order for the back-end tests to pass.
+
 3. Submit a pull request with clear descriptions of changes made. One of our team members will look at it as soon as possible to approve your PR.
 
 | Features                               | Status |

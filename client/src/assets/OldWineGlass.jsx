@@ -15,22 +15,22 @@ function WineGlass() {
     'Cellaring Container Data',
     'You are the Sommelier of Scalability',
   ];
-
+  
   const [message, setMessage] = useState(
     messageArray[Math.floor(Math.random() * messageArray.length)]
-  );
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * messageArray.length);
-      setMessage(messageArray[randomIndex]);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className={styles.container}>
+    );
+    
+    useEffect(() => {
+      const interval = setInterval(() => {
+        const randomIndex = Math.floor(Math.random() * messageArray.length);
+        setMessage(messageArray[randomIndex]);
+      }, 3000);
+      
+      return () => clearInterval(interval);
+    }, []);
+    
+    return (
+      <div className={styles.container}>
       <img
         src={WineSwirl}
         alt='loading...'

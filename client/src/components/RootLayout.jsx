@@ -16,10 +16,12 @@ function RootLayout() {
           </NavLink>
         </div>
 
-        <span className={styles.title}>Kubernét</span>
+        <div className={styles.div}>
+          <span className={styles.title}>Kubernét</span>
+        </div>
 
-        <div>
-          <NavLink to='/' className={styles.link}>
+        <div className={styles.div}>
+          <NavLink to='https://xn--kubernt-gya.com/' target='_blank' className={styles.link}>
             About
           </NavLink>
           {/* Dark/Light mode here */}

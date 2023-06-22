@@ -1,5 +1,5 @@
-//Dependancies
-import React, { Component } from 'react';
+//  Dependancies
+import React from 'react';
 import {
   createBrowserRouter,
   Route,
@@ -7,12 +7,14 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 
-//imported pages
+//  Children Components
 import LoginPage from './src/pages/LoginPage';
 import Dashboard from './src/pages/Dashboard';
 import SignupPage from './src/pages/SignupPage';
-import Installation from './src/pages/Installation';
+import Installation from './src/pages/Installation.tsx';
 import RootLayout from './src/components/RootLayout';
+
+//  Dynamic rendering of components
 
 const router = createBrowserRouter(
   createRoutesFromElements(

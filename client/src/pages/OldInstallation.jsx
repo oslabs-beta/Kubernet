@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './Installation.module.scss';
-import WineGlass from '../assets/WineGlass';
+import WineGlass from '../assets/WineGlass.tsx';
 
 function Installation() {
   const [loading, setLoading] = useState(false);
@@ -9,6 +9,7 @@ function Installation() {
   const navigate = useNavigate();
 
   async function installAll() {
+    
     try {
       setLoading(true);
       const response = await fetch('http://localhost:5050/install');
@@ -59,12 +60,7 @@ function Installation() {
     </React.Fragment>
   );
 
-  if (loading)
-    render = (
-      <React.Fragment>
-        <WineGlass />
-      </React.Fragment>
-    );
+  if (loading) render = <WineGlass />;
 
   let added = <></>;
   if (location?.state?.notLogged) {

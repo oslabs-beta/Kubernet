@@ -72,7 +72,7 @@ After typing in your credentials, our application will begin the process of inst
 The dashboard will be saved onto your profile and be displayed on the application.
 
 Your cluster metrics are now visible in real-time and update automatically! Feel free to move around the dashboard and customize the panel layout!
-<img src="">
+<img src="./public/readme/dashboard.gif">
 
 ## Considerations
 

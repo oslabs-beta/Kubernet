@@ -1,4 +1,4 @@
-<div align='center'><img width="autopx" src='./public/files/K-Github-Logo.png'/>
+<div align='center'><img width="autopx" src='./public/readme/K-Github-Logo.png'/>
 
 ---
 
@@ -23,7 +23,7 @@
 
 <div align='center'>
 
-• [Introduction](#introduction)• [Getting started](#getting-started) • [Installation](#installation) • [Meet The Team](#meet-the-team) •
+• [Introduction](#introduction)• [Getting started](#getting-started) • [Installation](#installation) • [Considerations](#considerations) • [Meet The Team](#meet-the-team) •
 
 </div>
 
@@ -37,21 +37,47 @@ Before using our application, be sure to have your kubernetes cluster running an
 
 ## Getting Started
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+To get started with opening the web application, first pull this repo onto your machine. In order to have the application work, you will need to create an .env file to store your mongo-URI. within your .env file please type the following:
 
 ```js
-const this = codeblock();
+MONGO_URI = '<mongodb URI>';
 ```
 
-<img src="./public/files/getstarted.gif"/>
+Once that file is created, open the terminal and type in
+
+```bash
+npm start
+```
+
+On your browser, localhost:8080 should appear, and you are now running our application!
+
+If this is your first time using the application hit the **Get Started** button. If you have an account with the application already, hit the _already have an account_ button.
+
+<img src="./public/readme/getstarted.gif" width="600px"/>
+
+_Once you type in your username and password, the application will direct you to login. Make sure the username you are inputting is unique!_
 
 ## Installation
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+After typing in your credentials, our application will begin the process of install Prometheus and Grafana onto your Kubernetes cluster through helm and apply our custom .yaml files.
 
-|          Readme          |  Table  |
-| :----------------------: | :-----: |
-| These are kinda annoying | Sort of |
+<img src="./public/readme/loading.gif" width="600px">
+
+The dashboard will be saved onto your profile and be displayed on the application.
+
+Your cluster metrics are now visible in real-time and update automatically! Feel free to move around the dashboard and customize the panel layout!
+<img src="">
+
+## Considerations
+
+The application requires several default port configurations, so be sure not to populate these ports!
+
+| Port | Application |
+| :--: | :---------: |
+| 9090 | Prometheus  |
+| 8080 |  Kubernét   |
+| 3000 |   Grafana   |
+| 5050 |   Express   |
 
 ## Meet The Team
 

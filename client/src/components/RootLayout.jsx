@@ -21,7 +21,7 @@ function RootLayout() {
         </div>
 
         <div className={styles.div}>
-          <NavLink to='/' className={styles.link}>
+          <NavLink to='https://xn--kubernt-gya.com/' target='_blank' className={styles.link}>
             About
           </NavLink>
           {/* Dark/Light mode here */}

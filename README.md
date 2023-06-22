@@ -43,7 +43,13 @@ To get started with opening the web application, first pull this repo onto your 
 MONGO_URI = '<mongodb URI>';
 ```
 
-Once that file is created, open the terminal and type in
+Once that file is created, open the terminal and install all the packages with
+
+```bash
+npm install
+```
+
+then type in
 
 ```bash
 npm start

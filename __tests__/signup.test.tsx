@@ -14,7 +14,7 @@ import { server } from '../mocks/server';
 import LoginPage from '../client/src/pages/LoginPage';
 import Dashboard from '../client/src/pages/Dashboard';
 import SignupPage from '../client/src/pages/SignupPage';
-import Installation from '../client/src/pages/Installation.tsx';
+import Installation from '../client/src/pages/Installation';
 
 const theRoutes = createRoutesFromElements(
   <>
@@ -78,8 +78,8 @@ describe('Signup Page', () => {
       });
       render(<RouterProvider router={router} />);
 
-      const usernameInput = screen.getByPlaceholderText('Username');
-      const passwordInput = screen.getByPlaceholderText('Password');
+      const usernameInput = screen.getByPlaceholderText('Username') as HTMLInputElement;
+      const passwordInput = screen.getByPlaceholderText('Password') as HTMLInputElement;
       const createAccountButton = screen.getByRole('button', {
         name: 'Create Account',
       });

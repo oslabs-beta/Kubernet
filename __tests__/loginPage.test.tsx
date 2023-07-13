@@ -76,8 +76,8 @@ describe('LoginPage', () => {
     })
     test('User types in login details and is navigated to dashboard',async () => {
       const loginBtn = screen.getByRole('button', {name: 'Login'});
-      const userNameInput = screen.getByPlaceholderText('Username');
-      const passwordInput = screen.getByPlaceholderText('Password');
+      const userNameInput = screen.getByPlaceholderText('Username') as HTMLInputElement;
+      const passwordInput = screen.getByPlaceholderText('Password') as HTMLInputElement;
    
       await userEvent.type(userNameInput, 'james');
       await userEvent.type(passwordInput, 'james123');

@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { fireEvent, getByRole, getByText, render, screen, waitFor} from "@testing-library/react";
 import '@testing-library/jest-dom/extend-expect';
-import { BrowserRouter as Router, createMemoryRouter, createRoutesFromElements, Route, Routes, RouterProvider } from 'react-router-dom';
+import { BrowserRouter as Router, createMemoryRouter, createRoutesFromElements, Route, Routes, RouterProvider, RouteObject } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 
 

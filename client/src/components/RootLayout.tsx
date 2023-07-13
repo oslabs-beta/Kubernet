@@ -5,7 +5,7 @@ import styles from '../styles/RootLayout.module.scss';
 
 import logo from '../assets/logo.png';
 
-function RootLayout() {
+function RootLayout(): JSX.Element {
   return (
     <div className={styles.container}>
       <header className={styles.header}>

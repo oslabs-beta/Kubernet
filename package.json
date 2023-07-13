@@ -2,7 +2,7 @@
   "name": "osp1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.tsx",
   "jest": {
     "moduleNameMapper": {
       "\\.(css|scss|gif|png|jpg|jpeg|svg)$": "identity-obj-proxy"
@@ -12,7 +12,7 @@
       "resources": "usable"
     },
     "setupFilesAfterEnv": [
-      "./test-setup.js"
+      "./test-setup.ts"
     ]
   },
   "scripts": {
@@ -57,8 +57,9 @@
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.2",
     "@types/node": "^20.3.1",
-    "babel-jest": "^29.5.0",
+    "@types/react-router-dom": "^5.3.3",
     "@types/supertest": "^2.0.12",
+    "babel-jest": "^29.5.0",
     "babel-loader": "^9.1.2",
     "concurrently": "^8.0.1",
     "cross-env": "^7.0.3",
